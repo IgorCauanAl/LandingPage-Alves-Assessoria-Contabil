@@ -1,0 +1,273 @@
+/* Estilos Gerais e Fonte */
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: #f0f0f0;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* SEÇÃO DE SERVIÇOS */
+.services-section {
+  width: 100%;
+  height: 1080px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: linear-gradient(
+      to bottom,
+      rgba(210, 180, 140, 0.7),
+      rgba(0, 0, 0, 0.8)
+    ),
+    url("/Fotos/Serviços/pexels-pixabay-209224.jpg") no-repeat center center;
+  background-size: cover;
+}
+
+/* Cabeçalho da seção */
+.services-header {
+  text-align: center;
+  position: relative;
+  z-index: 3;
+  margin-bottom: 40px;
+  color: #ffffff;
+}
+.services-header h2 {
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+.services-header p {
+  font-size: 30px;
+  font-weight: normal;
+}
+
+/* Container dos cards */
+.services-container {
+  position: relative;
+  width: 1200px;
+  height: 600px;
+  margin: 0 auto;
+  z-index: 2;
+}
+
+/* Logo central */
+.central-logo {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0.15;
+  z-index: 1;
+}
+.central-logo img {
+  width: 1500px;
+  height: 650px;
+}
+
+/* ======================================================
+  == ESTILOS DOS CARDS E EFEITO DE HOVER              ==
+  ======================================================
+*/
+
+/* Estilo base para todos os cards de serviço */
+.service-card {
+  position: absolute;
+  z-index: 3;
+  width: 220px;
+  height: 130px;
+  background-color: rgba(210, 180, 140, 0.8);
+  border-radius: 15px;
+  padding: 15px;
+  color: #333333;
+  font-weight: 500;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efeito de hover para destacar o card */
+.service-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Container da frente do card */
+.card-front {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  transition: opacity 0.4s ease;
+}
+
+.card-front img {
+  height: 40px;
+  margin-bottom: 10px;
+}
+
+/* Container de trás do card */
+.card-back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+/* Lógica do hover: esconde a frente e mostra o verso */
+.service-card:hover .card-front {
+  opacity: 0;
+}
+.service-card:hover .card-back {
+  opacity: 1;
+}
+
+/* Estilização da lista de sub-tópicos */
+.card-back ul {
+  list-style: none;
+  padding: 0;
+  text-align: left;
+}
+
+.card-back li {
+  font-size: 14px;
+  font-weight: 400;
+  margin-bottom: 8px;
+}
+
+.card-back li::before {
+  content: "✓";
+  color: #005f00;
+  font-weight: bold;
+  margin-right: 8px;
+}
+
+/* Posicionamento individual de cada card */
+.card-escrituracao {
+  top: 0;
+  left: 80px;
+}
+.card-contabilidade {
+  top: 190px;
+  left: 0;
+}
+.card-imposto-renda {
+  top: 380px;
+  left: 80px;
+}
+.card-planejamento-empresa {
+  top: 0;
+  right: 80px;
+}
+.card-planejamento-pf {
+  top: 190px;
+  right: 0;
+}
+.card-rh {
+  top: 380px;
+  right: 80px;
+}
+.card-assessoria {
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* ======================================================
+  == CORREÇÃO: Regra específica para o hover do card  ==
+  == 'Assessoria Tributária'                          ==
+  ======================================================
+*/
+.card-assessoria:hover {
+  /* Combina a centralização com o aumento de tamanho */
+  transform: translateX(-50%) scale(1.05);
+}
+/* ======================================================
+   == RESPONSIVO: TELAS DE LAPTOP (ATÉ 1366PX)         ==
+   ====================================================== */
+@media (max-width: 1366px) {
+  /* Diminui a área principal dos cards para caber na tela */
+  .services-container {
+    width: 980px;
+    height: 550px;
+  }
+
+  /* Reap roxima os cards para o novo tamanho do container */
+  .card-escrituracao {
+    top: 0;
+    left: 120px;
+  }
+  .card-contabilidade {
+    top: 180px;
+    left: 20px;
+  }
+  .card-imposto-renda {
+    top: 360px;
+    left: 120px;
+  }
+  .card-planejamento-empresa {
+    top: 0;
+    right: 120px;
+  }
+  .card-planejamento-pf {
+    top: 180px;
+    right: 20px;
+  }
+  .card-rh {
+    top: 360px;
+    right: 120px;
+  }
+}
+
+/* ===============================================
+   == RESPONSIVO: TELAS PEQUENAS (ATÉ 1024PX)   ==
+   =============================================== */
+@media (max-width: 1024px) {
+  .services-section {
+    height: auto;
+    padding: 60px 20px;
+  }
+
+  /* Remove o posicionamento absoluto para os cards fluírem */
+  .services-container {
+    position: static;
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+  }
+
+  .service-card {
+    position: static; /* Volta ao fluxo normal do documento */
+    transform: none !important; /* Reseta qualquer transform */
+    width: 100%;
+    max-width: 320px;
+    min-height: 140px;
+  }
+
+  .service-card:hover {
+    transform: scale(1.05) !important; /* Garante que o hover funcione */
+  }
+
+  .central-logo {
+    display: none;
+  }
+
+  .services-header h2 {
+    font-size: 32px;
+  }
+  .services-header p {
+    font-size: 20px;
+  }
+}

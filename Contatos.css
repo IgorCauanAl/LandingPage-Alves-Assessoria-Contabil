@@ -1,0 +1,174 @@
+/* ======================================================
+  == ESTILOS DA SEÇÃO DE CONTATO (VERSÃO AJUSTADA)    ==
+  ======================================================
+*/
+
+/* Container principal da seção */
+.contact-section {
+  width: 100%;
+  padding: 100px 60px;
+  background-color: #e6ddcf;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Roboto", sans-serif;
+}
+
+/* Container que agrupa a imagem e as informações */
+.contact-container {
+  display: flex;
+  align-items: center;
+  gap: 120px;
+  width: 100%;
+  max-width: 1200px;
+}
+
+/* ======================================================
+  == MOLDURA DA IMAGEM ATUALIZADA                     ==
+  ======================================================
+*/
+
+/* Retângulo à esquerda para a imagem */
+.contact-image-placeholder {
+  flex-shrink: 0;
+  width: 450px;
+  height: 650px;
+  background-color: #d2b48c; /* Cor de fundo que servirá de moldura */
+  border-radius: 15px;
+  overflow: hidden;
+  /* ATUALIZAÇÃO: Adicionado padding para criar o efeito de borda interna */
+  padding: 20px;
+}
+
+/* Imagem dentro do retângulo */
+.contact-image-placeholder img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* ATUALIZAÇÃO: Adicionado border-radius para suavizar os cantos da imagem */
+  border-radius: 8px;
+}
+
+/* Bloco de informações de contato à direita */
+.contact-info {
+  color: #333333;
+}
+
+.contact-info h2 {
+  font-size: 36px;
+  text-wrap: nowrap;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.contact-info h3 {
+  font-size: 36px;
+  font-weight: 700;
+  margin-top: 5px;
+  margin-bottom: 40px;
+}
+
+/* Lista de links de redes sociais */
+.social-links {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 50px;
+}
+
+.social-links li {
+  margin-bottom: 25px;
+}
+
+.social-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 15px;
+  text-decoration: none;
+  color: #333333;
+  font-size: 18px;
+  transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+  color: #000000;
+}
+
+.social-links img {
+  height: 28px;
+  width: 28px;
+}
+
+/* Botão "Fale com o contador" */
+.contact-cta-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: linear-gradient(to right, #d2b48c, rgba(210, 180, 140, 0.5));
+  color: #333333;
+  padding: 15px 30px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 500;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, background-color 0.3s ease;
+}
+
+.contact-cta-button:hover {
+  background-color: #c8a97e;
+  transform: scale(1.03);
+}
+
+.contact-cta-button img {
+  height: 24px;
+}
+
+/* ======================================================
+   == RESPONSIVO: TELAS DE LAPTOP (ATÉ 1440PX)         ==
+   ====================================================== */
+@media (max-width: 1440px) {
+  .contact-section {
+    padding: 80px 40px;
+  }
+  .contact-container {
+    gap: 60px; /* Diminui o espaço entre as colunas */
+    display: flex;
+    justify-content: center;
+  }
+  .contact-image-placeholder {
+    width: 380px; /* Diminui a largura da moldura */
+    height: 530px; /* Diminui a altura da moldura */
+  }
+  .contact-info h2,
+  .contact-info h3 {
+    font-size: 28px; /* Diminui o tamanho dos títulos */
+  }
+}
+
+/* ======================================================
+   == RESPONSIVO: TELAS MENORES (ATÉ 1024PX)           ==
+   ====================================================== */
+@media (max-width: 1024px) {
+  .contact-section {
+    padding: 60px 20px;
+    height: auto; /* Altura se adapta ao conteúdo */
+  }
+  .contact-container {
+    flex-direction: column; /* Coloca a imagem em cima do texto */
+    gap: 40px;
+  }
+
+  /* ATUALIZAÇÃO: Centralizando todos os elementos com Flexbox */
+  .contact-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centraliza todos os itens */
+    text-align: center; /* Centraliza os textos */
+  }
+
+  .contact-info h2 {
+    /* Impede a quebra de linha do título */
+    text-wrap: initial;
+    white-space: normal;
+  }
+}

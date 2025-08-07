@@ -1,0 +1,272 @@
+/* ======================================================
+   == ESTILOS GERAIS E DA PÁGINA PRINCIPAL             ==
+   ====================================================== */
+
+/* Resets básicos e definição da fonte principal */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: #f0f0f0;
+  overflow-x: hidden; /* Impede a barra de rolagem horizontal */
+}
+
+/* Container principal com dimensões e imagem de fundo */
+.hero-container {
+  width: 100%;
+  max-width: 1920px; /* Adicionado para melhor prática */
+  height: 950px;
+  margin: 0 auto;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: url("/Fotos/Banner_Pagina_Principal/business-962316_1920.jpg")
+    no-repeat center center;
+  background-size: cover;
+}
+
+/* Sobreposição de gradiente */
+.hero-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    rgba(210, 180, 140, 0.5) 30%,
+    rgba(210, 180, 140, 0) 70%
+  );
+  z-index: 1;
+}
+
+/* Garante que todo o conteúdo fique acima da sobreposição */
+.main-header,
+.hero-content,
+.features-section {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+}
+
+/* Estilos do Header */
+.main-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 80px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 180px;
+}
+
+.logo img {
+  width: 350px;
+  height: auto;
+  position: relative;
+  /* O transform será ajustado nas media queries */
+}
+
+.main-nav ul {
+  list-style: none;
+  display: flex;
+  gap: 35px;
+}
+
+.main-nav a {
+  color: #333333;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+/* Estilos do Conteúdo Principal (Hero) */
+.hero-content {
+  flex-grow: 1; /* Ocupa o espaço vertical disponível */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centraliza verticalmente */
+  align-items: flex-start; /* Alinha o conteúdo à esquerda */
+  text-align: left;
+  padding-left: 25%; /* Espaçamento da esquerda responsivo */
+  padding-right: 80px;
+  padding-bottom: 10%; /* AJUSTE: Sobe o bloco de conteúdo */
+}
+
+.hero-content .badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: linear-gradient(to right, #d2b48c, rgba(210, 180, 140, 0.5));
+  padding: 8px 15px;
+  border-radius: 15px;
+  height: 50px;
+  margin-bottom: 25px;
+}
+
+.hero-content .badge img {
+  height: 20px;
+}
+
+.hero-content .badge span {
+  font-size: 14px;
+  font-weight: 500;
+  color: #333333;
+}
+
+.hero-content h1 {
+  color: black;
+  font-size: 48px;
+  font-weight: 300;
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+
+.hero-content p {
+  font-size: 20px;
+  font-weight: 400; /* Ajustado para melhor legibilidade */
+  line-height: 1.5;
+  margin-bottom: 35px;
+  max-width: 750px;
+  color: black;
+}
+
+.hero-content .cta-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: linear-gradient(to right, #d2b48c, rgba(210, 180, 140, 0.5));
+  color: #333333;
+  padding: 15px 30px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 500;
+  transition: transform 0.2s ease;
+}
+
+.hero-content .cta-button:hover {
+  transform: scale(1.05);
+}
+
+.hero-content .cta-button img {
+  height: 24px;
+}
+
+/* ======================================================
+   == CORREÇÃO APLICADA AQUI                           ==
+   ====================================================== */
+.features-section {
+  position: absolute; /* Posição absoluta em relação ao .hero-container */
+  bottom: 0; /* Ancora na parte de baixo */
+  left: 0; /* Estica para a esquerda */
+  right: 0; /* Estica para a direita */
+  display: flex;
+  justify-content: space-around;
+  align-items: stretch;
+  background-color: rgba(210, 180, 140, 0.6);
+  padding: 40px 80px;
+  color: #333333;
+}
+
+.feature-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 30%;
+  padding: 0 20px;
+}
+
+.feature-card img {
+  height: 50px;
+  margin-bottom: 20px;
+}
+
+.feature-card h3 {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.feature-card p {
+  font-size: 16px;
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+.feature-card:not(:last-child) {
+  border-right: 3px solid rgba(0, 0, 0, 0.3);
+}
+
+/* ======================================================
+   == MEDIA QUERIES (ORGANIZADAS)                      ==
+   ====================================================== */
+
+/* Telas de Laptop (até 1440px) */
+@media (max-width: 1440px) {
+  .hero-content {
+    padding-left: 150px; /* Reduz o espaçamento esquerdo */
+    padding-right: 60px;
+  }
+  .hero-content h1 {
+    font-size: 42px;
+  }
+  .hero-content p {
+    font-size: 18px;
+    max-width: 550px;
+  }
+  .features-section {
+    padding: 40px 60px;
+  }
+}
+
+/* Telas Menores (até 1024px) */
+@media (max-width: 1024px) {
+  .hero-container {
+    min-height: auto;
+  }
+  .main-header {
+    position: relative;
+    padding: 20px;
+  }
+  .logo img {
+    width: 250px;
+  }
+  .main-nav ul {
+    gap: 20px;
+  }
+  .main-nav a {
+    font-size: 16px;
+  }
+  .hero-content {
+    padding: 40px 20px;
+    align-items: center;
+    text-align: center;
+  }
+  .features-section {
+    position: relative; /* Volta ao fluxo normal do documento */
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    padding: 40px 20px;
+    height: 150px;
+  }
+  .feature-card {
+    width: 80%;
+    max-width: 400px;
+    border-right: none;
+    padding-bottom: 30px;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.2);
+  }
+  .feature-card:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+}

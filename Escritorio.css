@@ -1,0 +1,134 @@
+/* Container principal da seção com fundo abstrato */
+.office-section {
+  width: 100%;
+  height: 1080px;
+  padding: 100px 60px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* ATUALIZAÇÃO: Gradiente e imagem combinados.
+    O gradiente funciona como uma camada de cor semi-transparente 
+    sobre a imagem de fundo.
+  */
+  background: 
+    /* Camada 1 (Topo): O gradiente */ linear-gradient(
+      to bottom,
+      rgba(210, 180, 140, 0.7),
+      rgba(0, 0, 0, 1)
+    ),
+    /* Camada 2 (Fundo): A imagem */
+      url("/Fotos/Escritorio/pexels-ercan-senkaya-425995607-15195276.jpg");
+
+  /* Essas propriedades se aplicam à imagem de fundo */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+/* Container que alinha todo o conteúdo no centro */
+.office-container {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* Título "O Escritório" */
+.office-title {
+  font-size: 42px;
+  font-weight: 700;
+  color: #333333;
+  margin-bottom: 25px;
+}
+
+/* Bloco de conteúdo com fundo bege */
+.office-content-block {
+  background-color: #d2b48c;
+  border-radius: 15px;
+  padding: 50px;
+  display: flex;
+  align-items: center;
+  gap: 50px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+  height: 500px;
+  width: 1500px;
+}
+
+/* Coluna do texto à esquerda */
+.office-text {
+  flex: 1; /* Ocupa o espaço disponível */
+  max-width: 35%; /* Limita a largura do texto */
+}
+
+.office-text p {
+  font-size: 18px;
+  line-height: 1.7;
+  color: #333333;
+}
+
+/* Coluna das imagens à direita */
+.office-images {
+  flex: 1.5; /* Ocupa um pouco mais de espaço */
+  display: flex;
+  gap: 25px; /* Espaço entre as duas imagens */
+  align-items: center;
+}
+
+.office-images img {
+  width: 500px; /* Cada imagem ocupa metade do espaço do container de imagens */
+  height: 300px;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
+  object-fit: cover;
+}
+
+.office-images img:hover {
+  transform: scale(1.03); /* Efeito de zoom sutil no hover */
+}
+
+/* ======================================================
+   == RESPONSIVO: TELAS DE LAPTOP (ATÉ 1440PX)         ==
+   ====================================================== */
+@media (max-width: 1440px) {
+  .office-text p {
+    font-size: 16px; /* Diminui o texto para caber melhor */
+  }
+  .office-content-block {
+    padding: 40px;
+    gap: 30px;
+    width: 1200px;
+    height: 400px;
+  }
+
+  .office-images img {
+    width: 330px; /* Cada imagem ocupa metade do espaço do container de imagens */
+    height: 200px;
+  }
+}
+
+/* ======================================================
+   == RESPONSIVO: TELAS MENORES (ATÉ 1024PX)           ==
+   ====================================================== */
+@media (max-width: 1024px) {
+  .office-section {
+    padding: 60px 20px;
+    height: auto; /* Altura se ajusta ao conteúdo */
+  }
+  .office-title {
+    text-align: center;
+  }
+  .office-content-block {
+    flex-direction: column; /* Coloca o texto sobre as imagens */
+    padding: 30px;
+    gap: 30px;
+  }
+  .office-text {
+    max-width: 100%;
+    text-align: center;
+  }
+  .office-images {
+    width: 100%;
+  }
+}
