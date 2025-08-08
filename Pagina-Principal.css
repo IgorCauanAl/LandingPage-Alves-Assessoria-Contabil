@@ -7,6 +7,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -64,13 +65,79 @@ body {
   top: 0;
   left: 0;
   height: 180px;
+  width: 100%;
+  transition: all 0.5s ease; /* transição suave */
+  background: transparent; /* fundo transparente */
+  z-index: 1000;
 }
+
+/* Quando ativar a classe fixed (menu fixo no topo) */
+.main-header.fixed {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%) translateY(0);
+  width: 60%;
+  height: 60px;
+  background: linear-gradient(to right, #d2b48c, rgba(210, 180, 140, 0.9));
+  border-radius: 15px;
+  box-shadow: none;
+  justify-content: center;
+  padding: 0 20px;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+    background 0.6s ease-in-out, height 0.6s ease-in-out,
+    padding 0.6s ease-in-out;
+
+  z-index: 10000;
+}
+
+/* Após a animação do transform, traz o menu para sua posição final */
+.main-header.fixed.show {
+  transform: translateX(-50%) translateY(0); /* aparece suavemente */
+  opacity: 1;
+}
+
+/* Esconde a logo quando fixo */
+.main-header.fixed .logo {
+  display: none;
+}
+
+/* Ajusta a navegação para ocupar o espaço e centralizar */
+.main-header.fixed .main-nav {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+}
+
+/* Ajusta os itens da nav no menu fixo */
+.main-header.fixed .main-nav ul {
+  gap: 30px;
+}
+
+.main-header.fixed .main-nav a {
+  color: #333;
+  font-weight: 600;
+  font-size: 16px;
+  transition: color 0.3s ease;
+}
+
+.main-header.fixed .main-nav a:hover {
+  color: white; /* tom da paleta */
+  background: none;
+}
+
+/* Classe para esconder o menu (deslizar pra baixo) */
+.main-header.fixed.hide {
+  transform: translateX(-50%) translateY(-100%); /* sai para cima suavemente */
+  opacity: 0;
+  transition: transform 0.4s ease, opacity 0.4s ease;
+}
+/* Encerramento do menu fixo */
 
 .logo img {
   width: 350px;
   height: auto;
   position: relative;
-  /* O transform será ajustado nas media queries */
 }
 
 .main-nav ul {
@@ -84,6 +151,11 @@ body {
   text-decoration: none;
   font-size: 18px;
   font-weight: 500;
+}
+
+.main-nav li :hover {
+  background: linear-gradient(to right, #d2b48c, rgba(210, 180, 140, 0.9));
+  border-radius: 15px;
 }
 
 /* Estilos do Conteúdo Principal (Hero) */
@@ -110,8 +182,13 @@ body {
   margin-bottom: 25px;
 }
 
-.hero-content .badge img {
+.hero-content {
   height: 20px;
+}
+
+.badge img {
+  height: 35px;
+  width: 35px;
 }
 
 .hero-content .badge span {
@@ -205,68 +282,151 @@ body {
   border-right: 3px solid rgba(0, 0, 0, 0.3);
 }
 
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease-out;
+  will-change: transform, opacity;
+}
+
+.scroll-reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 /* ======================================================
    == MEDIA QUERIES (ORGANIZADAS)                      ==
    ====================================================== */
 
-/* Telas de Laptop (até 1440px) */
-@media (max-width: 1440px) {
+/* Notebooks grandes (1440px a 1600px) */
+@media (max-width: 1600px) {
+  /* Ajustes sutis para telas um pouco menores que o design original */
+  .main-header {
+    padding: 25px 60px; /* Reduz o padding horizontal */
+  }
+
+  .logo img {
+    width: 320px; /* Diminui um pouco o logo */
+  }
+
   .hero-content {
-    padding-left: 150px; /* Reduz o espaçamento esquerdo */
+    padding-left: 20%; /* Aproxima um pouco o conteúdo da borda */
     padding-right: 60px;
   }
+
   .hero-content h1 {
-    font-size: 42px;
+    font-size: 44px; /* Reduz a fonte do título principal */
   }
-  .hero-content p {
-    font-size: 18px;
-    max-width: 550px;
-  }
+
   .features-section {
-    padding: 40px 60px;
+    padding: 35px 60px; /* Ajusta o padding para consistência */
   }
 }
 
-/* Telas Menores (até 1024px) */
-@media (max-width: 1024px) {
+@media (max-width: 1366px) {
   .hero-container {
-    min-height: auto;
+    height: 820px; /* Reduz a altura total para caber melhor na tela */
   }
+
   .main-header {
-    position: relative;
-    padding: 20px;
+    padding: 20px 40px; /* Reduz ainda mais o padding */
+    height: 160px;
   }
+
   .logo img {
-    width: 250px;
+    width: 280px; /* Logo significativamente menor */
   }
+
+  .main-nav ul {
+    gap: 25px; /* Diminui o espaço entre os links da navegação */
+  }
+
+  .main-nav a {
+    font-size: 17px;
+  }
+
+  .hero-content {
+    padding-left: 10%; /* Move o conteúdo mais para a esquerda */
+    padding-right: 40px;
+    padding-bottom: 15%; /* Sobe um pouco o bloco */
+    margin-top: 50px;
+  }
+
+  .hero-content h1 {
+    font-size: 40px;
+  }
+
+  .hero-content p {
+    font-size: 18px;
+    max-width: 600px; /* Limita a largura do parágrafo */
+  }
+
+  .hero-content .cta-button {
+    font-size: 17px;
+    padding: 14px 28px;
+  }
+
+  .features-section {
+    padding: 30px 40px;
+  }
+
+  .feature-card h3 {
+    font-size: 20px;
+  }
+
+  .feature-card p {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 1280px) {
+  .hero-container {
+    height: 800px; /* Altura ainda menor */
+  }
+
+  .main-header {
+    padding: 20px 30px; /* Padding mínimo para manter o alinhamento */
+  }
+
+  .logo img {
+    width: 260px;
+  }
+
   .main-nav ul {
     gap: 20px;
   }
-  .main-nav a {
-    font-size: 16px;
-  }
+
   .hero-content {
-    padding: 40px 20px;
-    align-items: center;
-    text-align: center;
+    padding-left: 8%;
+    padding-right: 30px;
+    margin-top: 50px;
   }
+
+  .hero-content h1 {
+    font-size: 36px; /* Fontes menores para evitar quebras de linha ruins */
+  }
+
+  .hero-content p {
+    font-size: 17px;
+    max-width: 550px;
+  }
+
+  .hero-content .cta-button {
+    font-size: 16px;
+    padding: 12px 24px;
+  }
+
   .features-section {
-    position: relative; /* Volta ao fluxo normal do documento */
-    flex-direction: column;
-    align-items: center;
-    gap: 40px;
-    padding: 40px 20px;
-    height: 150px;
+    padding: 25px 30px;
+    align-items: flex-start; /* Alinha os cards no topo se tiverem alturas diferentes */
   }
-  .feature-card {
-    width: 80%;
-    max-width: 400px;
-    border-right: none;
-    padding-bottom: 30px;
-    border-bottom: 2px solid rgba(0, 0, 0, 0.2);
+
+  .feature-card h3 {
+    font-size: 18px;
   }
-  .feature-card:last-child {
-    border-bottom: none;
-    padding-bottom: 0;
+
+  .feature-card p {
+    font-size: 14px; /* Fonte menor para caber nos cards mais estreitos */
+    line-height: 1.5;
   }
 }

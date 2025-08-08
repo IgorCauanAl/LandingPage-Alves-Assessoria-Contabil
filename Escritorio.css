@@ -88,10 +88,35 @@
   transform: scale(1.03); /* Efeito de zoom sutil no hover */
 }
 
+@media (max-width: 1600px) {
+  .office-section {
+    height: 950px;
+    padding: 80px 4%;
+  }
+
+  .office-content-block {
+    width: 95%;
+    gap: 40px;
+    padding: 40px;
+  }
+
+  .office-text {
+    max-width: 40%;
+  }
+
+  .office-images img {
+    width: 45%;
+    height: 280px;
+  }
+}
+
 /* ======================================================
    == RESPONSIVO: TELAS DE LAPTOP (ATÉ 1440PX)         ==
    ====================================================== */
 @media (max-width: 1440px) {
+  .office-container {
+    margin-left: 60px;
+  }
   .office-text p {
     font-size: 16px; /* Diminui o texto para caber melhor */
   }
@@ -105,6 +130,16 @@
   .office-images img {
     width: 330px; /* Cada imagem ocupa metade do espaço do container de imagens */
     height: 200px;
+  }
+}
+
+/*======================================================
+   == RESPONSIVO: TELAS MENORES (ATÉ 1280PX)           ==
+   ====================================================== */
+
+@media (max-width: 1280px) {
+  .office-content-block {
+    width: 1100px;
   }
 }
 

@@ -126,6 +126,25 @@
 /* ======================================================
    == RESPONSIVO: TELAS DE LAPTOP (ATÉ 1440PX)         ==
    ====================================================== */
+
+@media (min-width: 1600px) {
+  .contact-container {
+    max-width: 1400px;
+    gap: 80px;
+    justify-content: center;
+  }
+
+  .contact-image-placeholder {
+    width: 420px;
+    height: 620px;
+  }
+
+  .contact-info h2,
+  .contact-info h3 {
+    font-size: 34px;
+  }
+}
+
 @media (max-width: 1440px) {
   .contact-section {
     padding: 80px 40px;
