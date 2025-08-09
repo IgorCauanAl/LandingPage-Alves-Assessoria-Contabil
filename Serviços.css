@@ -1,4 +1,8 @@
 /* Estilos Gerais e Fonte */
+html {
+  font-size: 100%; /* Base para cálculo do rem (1rem = 16px por padrão) */
+}
+
 body {
   font-family: "Roboto", sans-serif;
   background-color: #f0f0f0;
@@ -12,7 +16,7 @@ body {
 /* SEÇÃO DE SERVIÇOS */
 .services-section {
   width: 100%;
-  height: 1080px;
+  height: 67.5rem; /* 1080px */
   position: relative;
   overflow: hidden;
   display: flex;
@@ -32,23 +36,23 @@ body {
   text-align: center;
   position: relative;
   z-index: 3;
-  margin-bottom: 40px;
+  margin-bottom: 2.5rem; /* 40px */
   color: #333333;
 }
 .services-header h2 {
-  font-size: 40px;
-  margin-bottom: 10px;
+  font-size: 2.5rem; /* 40px */
+  margin-bottom: 0.625rem; /* 10px */
 }
 .services-header p {
-  font-size: 30px;
+  font-size: 1.875rem; /* 30px */
   font-weight: normal;
 }
 
 /* Container dos cards */
 .services-container {
   position: relative;
-  width: 1200px;
-  height: 600px;
+  width: 75rem; /* 1200px */
+  height: 37.5rem; /* 600px */
   margin: 0 auto;
   z-index: 2;
 }
@@ -63,8 +67,8 @@ body {
   z-index: 1;
 }
 .central-logo img {
-  width: 1500px;
-  height: 650px;
+  width: 93.75rem; /* 1500px */
+  height: 40.625rem; /* 650px */
 }
 
 /* ======================================================
@@ -76,24 +80,23 @@ body {
 .service-card {
   position: absolute;
   z-index: 3;
-  width: 220px;
-  height: 130px;
+  width: 13.75rem; /* 220px */
+  height: 8.125rem; /* 130px */
   background-color: rgba(210, 180, 140, 0.8);
-  border-radius: 15px;
-  padding: 15px;
+  border-radius: 0.9375rem; /* 15px */
+  padding: 0.9375rem; /* 15px */
   color: #333333;
   font-weight: 500;
   cursor: pointer;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Efeito de hover para destacar o card */
 .service-card:hover {
   transform: scale(1.05);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0.5rem 1.5625rem rgba(0, 0, 0, 0.2); /* 0 8px 25px */
 }
 
-/* Container da frente do card */
+/* Frente do card */
 .card-front {
   display: flex;
   flex-direction: column;
@@ -105,11 +108,11 @@ body {
 }
 
 .card-front img {
-  height: 40px;
-  margin-bottom: 10px;
+  height: 2.5rem; /* 40px */
+  margin-bottom: 0.625rem; /* 10px */
 }
 
-/* Container de trás do card */
+/* Verso do card */
 .card-back {
   position: absolute;
   top: 0;
@@ -123,7 +126,6 @@ body {
   transition: opacity 0.4s ease;
 }
 
-/* Lógica do hover: esconde a frente e mostra o verso */
 .service-card:hover .card-front {
   opacity: 0;
 }
@@ -131,7 +133,6 @@ body {
   opacity: 1;
 }
 
-/* Estilização da lista de sub-tópicos */
 .card-back ul {
   list-style: none;
   padding: 0;
@@ -139,42 +140,42 @@ body {
 }
 
 .card-back li {
-  font-size: 14px;
+  font-size: 0.875rem; /* 14px */
   font-weight: 400;
-  margin-bottom: 8px;
+  margin-bottom: 0.5rem; /* 8px */
 }
 
 .card-back li::before {
   content: "✓";
   color: #005f00;
   font-weight: bold;
-  margin-right: 8px;
+  margin-right: 0.5rem; /* 8px */
 }
 
 /* Posicionamento individual de cada card */
 .card-escrituracao {
   top: 0;
-  left: 80px;
+  left: 5rem; /* 80px */
 }
 .card-contabilidade {
-  top: 190px;
+  top: 11.875rem; /* 190px */
   left: 0;
 }
 .card-imposto-renda {
-  top: 380px;
-  left: 80px;
+  top: 23.75rem; /* 380px */
+  left: 5rem; /* 80px */
 }
 .card-planejamento-empresa {
   top: 0;
-  right: 80px;
+  right: 5rem; /* 80px */
 }
 .card-planejamento-pf {
-  top: 190px;
+  top: 11.875rem; /* 190px */
   right: 0;
 }
 .card-rh {
-  top: 380px;
-  right: 80px;
+  top: 23.75rem; /* 380px */
+  right: 5rem; /* 80px */
 }
 .card-assessoria {
   bottom: 0;
@@ -182,62 +183,262 @@ body {
   transform: translateX(-50%);
 }
 
-/* ======================================================
-  == CORREÇÃO: Regra específica para o hover do card  ==
-  == 'Assessoria Tributária'                          ==
-  ======================================================
-*/
 .card-assessoria:hover {
-  /* Combina a centralização com o aumento de tamanho */
   transform: translateX(-50%) scale(1.05);
 }
+
 /* ======================================================
-   == RESPONSIVO: TELAS DE LAPTOP (ATÉ 1366PX)         ==
+   == RESPONSIVO: TELAS 2K (A PARTIR DE 1921PX)         ==
    ====================================================== */
-@media (max-width: 1366px) {
-  /* Diminui a área principal dos cards para caber na tela */
-  .services-container {
-    width: 980px;
-    height: 550px;
+@media (min-width: 120.0625em) {
+  /* 1921px */
+  .services-section {
+    height: 85rem; /* 1360px */
   }
 
-  /* Reap roxima os cards para o novo tamanho do container */
+  .services-header h2 {
+    font-size: 3.125rem; /* AUMENTO DE FONTE: 50px */
+  }
+  .services-header p {
+    font-size: 2.25rem; /* AUMENTO DE FONTE: 36px */
+  }
+
+  .services-container {
+    /* Aumenta a área de posicionamento dos cards */
+    width: 93.75rem; /* 1500px */
+    height: 46.875rem; /* 750px */
+  }
+
+  .central-logo img {
+    /* Aumenta o logo central */
+    width: 117rem; /* 1872px */
+    height: 51rem; /* 816px */
+  }
+
+  .service-card {
+    /* Aumenta o tamanho dos cards */
+    width: 17rem; /* 272px */
+    height: 10rem; /* 160px */
+  }
+
+  .card-front span {
+    font-size: 1.125rem; /* AUMENTO DE FONTE: 18px */
+  }
+
+  .card-back li {
+    font-size: 1rem; /* AUMENTO DE FONTE: 16px */
+  }
+
+  /* --- Reposicionamento proporcional dos cards --- */
   .card-escrituracao {
     top: 0;
-    left: 120px;
+    left: 6.25rem; /* 100px */
   }
   .card-contabilidade {
-    top: 180px;
-    left: 20px;
+    top: 15rem; /* 240px */
+    left: 0;
   }
   .card-imposto-renda {
-    top: 360px;
-    left: 120px;
+    top: 30rem; /* 480px */
+    left: 6.25rem; /* 100px */
   }
   .card-planejamento-empresa {
     top: 0;
-    right: 120px;
+    right: 6.25rem; /* 100px */
   }
   .card-planejamento-pf {
-    top: 180px;
-    right: 20px;
+    top: 15rem; /* 240px */
+    right: 0;
   }
   .card-rh {
-    top: 360px;
-    right: 120px;
+    top: 30rem; /* 480px */
+    right: 6.25rem; /* 100px */
   }
 }
 
+/* ======================================================
+   == RESPONSIVO: TELAS 4K (A PARTIR DE 2561PX)         ==
+   ====================================================== */
+@media (min-width: 160.0625em) {
+  /* 2561px */
+  .services-section {
+    height: 101rem; /* 1616px */
+  }
+
+  .services-header h2 {
+    font-size: 3.75rem; /* AUMENTO DE FONTE: 60px */
+  }
+  .services-header p {
+    font-size: 2.8rem; /* AUMENTO DE FONTE: 45px */
+  }
+
+  .services-container {
+    width: 112.5rem; /* 1800px */
+    height: 56.25rem; /* 900px */
+  }
+
+  .central-logo img {
+    width: 140rem; /* 2240px */
+    height: 61rem; /* 976px */
+  }
+
+  .service-card {
+    width: 20.5rem; /* 328px */
+    height: 12rem; /* 192px */
+  }
+
+  .card-front span {
+    font-size: 1.25rem; /* AUMENTO DE FONTE: 20px */
+  }
+
+  .card-back li {
+    font-size: 1.25rem; /* AUMENTO DE FONTE: 20px */
+  }
+
+  /* --- Reposicionamento proporcional dos cards --- */
+  .card-escrituracao {
+    top: 0;
+    left: 7.5rem; /* 120px */
+  }
+  .card-contabilidade {
+    top: 17.8rem; /* 285px */
+    left: 0;
+  }
+  .card-imposto-renda {
+    top: 35.6rem; /* 570px */
+    left: 7.5rem; /* 120px */
+  }
+  .card-planejamento-empresa {
+    top: 0;
+    right: 7.5rem; /* 120px */
+  }
+  .card-planejamento-pf {
+    top: 17.8rem; /* 285px */
+    right: 0;
+  }
+  .card-rh {
+    top: 35.6rem; /* 570px */
+    right: 7.5rem; /* 120px */
+  }
+}
+
+/* ======================================================
+   == RESPONSIVO: TELAS GRANDES (ATÉ 1600PX)          ==
+   ====================================================== */
+@media (max-width: 100em) {
+  /* 1600px */
+  .services-section {
+    height: 61rem; /* 976px */
+  }
+
+  .services-header h2 {
+    font-size: 2.25rem; /* 36px */
+  }
+  .services-header p {
+    font-size: 1.625rem; /* 26px */
+  }
+
+  .services-container {
+    /* Reduz o container principal */
+    width: 67.5rem; /* 1080px */
+    height: 33.75rem; /* 540px */
+  }
+
+  .service-card {
+    /* Reduz o tamanho dos cards */
+    width: 12.5rem; /* 200px */
+    height: 7.5rem; /* 120px */
+  }
+
+  .card-back li {
+    font-size: 0.8125rem; /* 13px */
+  }
+
+  /* --- Reposicionamento proporcional dos cards --- */
+  .card-escrituracao {
+    left: 4.5rem; /* 72px */
+  }
+  .card-contabilidade {
+    top: 10.7rem; /* 171px */
+  }
+  .card-imposto-renda {
+    top: 21.4rem; /* 342px */
+    left: 4.5rem; /* 72px */
+  }
+  .card-planejamento-empresa {
+    right: 4.5rem; /* 72px */
+  }
+  .card-planejamento-pf {
+    top: 10.7rem; /* 171px */
+  }
+  .card-rh {
+    top: 21.4rem; /* 342px */
+    right: 4.5rem; /* 72px */
+  }
+}
+
+/* ======================================================
+   == RESPONSIVO: LAPTOPS (ATÉ 1366PX / 1280PX)        ==
+   ====================================================== */
+@media (max-width: 85.375em) {
+  /* 1366px */
+  .services-section {
+    height: 56.25rem; /* 900px */
+  }
+
+  .services-header h2 {
+    font-size: 2.125rem; /* 34px */
+  }
+  .services-header p {
+    font-size: 1.5rem; /* 24px */
+  }
+
+  .services-container {
+    width: 61.25rem; /* 980px */
+    height: 34.375rem; /* 550px */
+  }
+
+  .service-card {
+    width: 11.875rem; /* 190px */
+    height: 7.1875rem; /* 115px */
+  }
+
+  /* --- Reposicionamento para telas menores --- */
+  .card-escrituracao {
+    top: 0;
+    left: 7.5rem; /* 120px */
+  }
+  .card-contabilidade {
+    top: 11.25rem; /* 180px */
+    left: 1.25rem; /* 20px */
+  }
+  .card-imposto-renda {
+    top: 22.5rem; /* 360px */
+    left: 7.5rem; /* 120px */
+  }
+  .card-planejamento-empresa {
+    top: 0;
+    right: 7.5rem; /* 120px */
+  }
+  .card-planejamento-pf {
+    top: 11.25rem; /* 180px */
+    right: 1.25rem; /* 20px */
+  }
+  .card-rh {
+    top: 22.5rem; /* 360px */
+    right: 7.5rem; /* 120px */
+  }
+}
 /* ===============================================
    == RESPONSIVO: TELAS PEQUENAS (ATÉ 1024PX)   ==
    =============================================== */
-@media (max-width: 1024px) {
+@media (max-width: 64em) {
+  /* 1024px */
   .services-section {
     height: auto;
-    padding: 60px 20px;
+    padding: 3.75rem 1.25rem; /* 60px 20px */
   }
 
-  /* Remove o posicionamento absoluto para os cards fluírem */
   .services-container {
     position: static;
     width: 100%;
@@ -245,19 +446,19 @@ body {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 25px;
+    gap: 1.5625rem; /* 25px */
   }
 
   .service-card {
-    position: static; /* Volta ao fluxo normal do documento */
-    transform: none !important; /* Reseta qualquer transform */
+    position: static;
+    transform: none !important;
     width: 100%;
-    max-width: 320px;
-    min-height: 140px;
+    max-width: 20rem; /* 320px */
+    min-height: 8.75rem; /* 140px */
   }
 
   .service-card:hover {
-    transform: scale(1.05) !important; /* Garante que o hover funcione */
+    transform: scale(1.05) !important;
   }
 
   .central-logo {
@@ -265,9 +466,9 @@ body {
   }
 
   .services-header h2 {
-    font-size: 32px;
+    font-size: 2rem; /* 32px */
   }
   .services-header p {
-    font-size: 20px;
+    font-size: 1.25rem; /* 20px */
   }
 }

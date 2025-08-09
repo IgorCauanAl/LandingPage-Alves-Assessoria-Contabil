@@ -1,5 +1,5 @@
 /* ======================================================
-   == ESTILOS GERAIS E DA PÁGINA PRINCIPAL             ==
+   == ESTILOS GERAIS E DA PÁGINA PRINCIPAL (Refatorado) ==
    ====================================================== */
 
 /* Resets básicos e definição da fonte principal */
@@ -10,17 +10,24 @@
   scroll-behavior: smooth;
 }
 
+/* Definindo a base. A maioria dos navegadores usa 16px como padrão.
+  Todas as unidades 'rem' serão relativas a este valor. 1rem = 16px.
+*/
+html {
+  font-size: 100%; /* Garante a base padrão para acessibilidade */
+}
+
 body {
   font-family: "Roboto", sans-serif;
   background-color: #f0f0f0;
-  overflow-x: hidden; /* Impede a barra de rolagem horizontal */
+  overflow-x: hidden;
 }
 
 /* Container principal com dimensões e imagem de fundo */
 .hero-container {
   width: 100%;
-  max-width: 1920px; /* Adicionado para melhor prática */
-  height: 950px;
+  max-width: 120rem; /* 1920px / 16px */
+  height: 59.375rem; /* 950px / 16px */
   margin: 0 auto;
   position: relative;
   display: flex;
@@ -60,82 +67,76 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 30px 80px;
+  padding: 1.875rem 5rem; /* 30px 80px */
   position: absolute;
   top: 0;
   left: 0;
-  height: 180px;
+  height: 11.25rem; /* 180px */
   width: 100%;
-  transition: all 0.5s ease; /* transição suave */
-  background: transparent; /* fundo transparente */
+  transition: all 0.5s ease;
+  background: transparent;
   z-index: 1000;
 }
 
-/* Quando ativar a classe fixed (menu fixo no topo) */
+/* Menu fixo no topo */
 .main-header.fixed {
   position: fixed;
   top: 0;
   left: 50%;
   transform: translateX(-50%) translateY(0);
   width: 60%;
-  height: 60px;
+  height: 3.75rem; /* 60px */
   background: linear-gradient(to right, #d2b48c, rgba(210, 180, 140, 0.9));
-  border-radius: 15px;
+  border-radius: 0.9375rem; /* 15px */
   box-shadow: none;
   justify-content: center;
-  padding: 0 20px;
+  padding: 0 1.25rem; /* 20px */
   transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1),
     background 0.6s ease-in-out, height 0.6s ease-in-out,
     padding 0.6s ease-in-out;
-
   z-index: 10000;
 }
 
-/* Após a animação do transform, traz o menu para sua posição final */
 .main-header.fixed.show {
-  transform: translateX(-50%) translateY(0); /* aparece suavemente */
+  transform: translateX(-50%) translateY(0);
   opacity: 1;
 }
 
-/* Esconde a logo quando fixo */
+.main-header.fixed.hide {
+  transform: translateX(-50%) translateY(-100%);
+  opacity: 0;
+  transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
 .main-header.fixed .logo {
   display: none;
 }
 
-/* Ajusta a navegação para ocupar o espaço e centralizar */
 .main-header.fixed .main-nav {
   flex-grow: 1;
   display: flex;
   justify-content: center;
 }
 
-/* Ajusta os itens da nav no menu fixo */
 .main-header.fixed .main-nav ul {
-  gap: 30px;
+  gap: 1.875rem; /* 30px */
 }
 
 .main-header.fixed .main-nav a {
   color: #333;
   font-weight: 600;
-  font-size: 16px;
+  font-size: 1rem; /* 16px */
   transition: color 0.3s ease;
 }
 
 .main-header.fixed .main-nav a:hover {
-  color: white; /* tom da paleta */
+  color: white;
   background: none;
 }
-
-/* Classe para esconder o menu (deslizar pra baixo) */
-.main-header.fixed.hide {
-  transform: translateX(-50%) translateY(-100%); /* sai para cima suavemente */
-  opacity: 0;
-  transition: transform 0.4s ease, opacity 0.4s ease;
-}
-/* Encerramento do menu fixo */
+/* Fim do menu fixo */
 
 .logo img {
-  width: 350px;
+  width: 21.875rem; /* 350px */
   height: auto;
   position: relative;
 }
@@ -143,87 +144,83 @@ body {
 .main-nav ul {
   list-style: none;
   display: flex;
-  gap: 35px;
+  gap: 2.1875rem; /* 35px */
 }
 
 .main-nav a {
   color: #333333;
   text-decoration: none;
-  font-size: 18px;
+  font-size: 1.125rem; /* 18px */
   font-weight: 500;
 }
 
 .main-nav li :hover {
   background: linear-gradient(to right, #d2b48c, rgba(210, 180, 140, 0.9));
-  border-radius: 15px;
+  border-radius: 0.9375rem; /* 15px */
 }
 
 /* Estilos do Conteúdo Principal (Hero) */
 .hero-content {
-  flex-grow: 1; /* Ocupa o espaço vertical disponível */
+  flex-grow: 1;
   display: flex;
   flex-direction: column;
-  justify-content: center; /* Centraliza verticalmente */
-  align-items: flex-start; /* Alinha o conteúdo à esquerda */
+  justify-content: center;
+  align-items: flex-start;
   text-align: left;
-  padding-left: 25%; /* Espaçamento da esquerda responsivo */
-  padding-right: 80px;
-  padding-bottom: 10%; /* AJUSTE: Sobe o bloco de conteúdo */
+  padding-left: 25%; /* % é responsivo por natureza, mantido */
+  padding-right: 5rem; /* 80px */
+  padding-bottom: 10%; /* % é responsivo por natureza, mantido */
 }
 
 .hero-content .badge {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
+  gap: 0.625rem; /* 10px */
   background: linear-gradient(to right, #d2b48c, rgba(210, 180, 140, 0.5));
-  padding: 8px 15px;
-  border-radius: 15px;
-  height: 50px;
-  margin-bottom: 25px;
-}
-
-.hero-content {
-  height: 20px;
+  padding: 0.5rem 0.9375rem; /* 8px 15px */
+  border-radius: 0.9375rem; /* 15px */
+  min-height: 3.125rem; /* 50px - Usando min-height para flexibilidade */
+  margin-bottom: 1.5625rem; /* 25px */
 }
 
 .badge img {
-  height: 35px;
-  width: 35px;
+  height: 2.1875rem; /* 35px */
+  width: 2.1875rem; /* 35px */
 }
 
 .hero-content .badge span {
-  font-size: 14px;
+  font-size: 0.875rem; /* 14px */
   font-weight: 500;
   color: #333333;
 }
 
 .hero-content h1 {
   color: black;
-  font-size: 48px;
+  font-size: 3rem; /* 48px */
   font-weight: 300;
-  margin-bottom: 20px;
+  margin-bottom: 1.25rem; /* 20px */
   line-height: 1.2;
 }
 
 .hero-content p {
-  font-size: 20px;
-  font-weight: 400; /* Ajustado para melhor legibilidade */
+  font-size: 1.25rem; /* 20px */
+  font-weight: 400;
   line-height: 1.5;
-  margin-bottom: 35px;
-  max-width: 750px;
+  margin-bottom: 2.1875rem; /* 35px */
+  max-width: 46.875rem; /* 750px */
   color: black;
 }
 
 .hero-content .cta-button {
   display: inline-flex;
   align-items: center;
-  gap: 12px;
+  gap: 0.75rem; /* 12px */
   background: linear-gradient(to right, #d2b48c, rgba(210, 180, 140, 0.5));
   color: #333333;
-  padding: 15px 30px;
-  border-radius: 8px;
+  padding: 0.9375rem 1.875rem; /* 15px 30px */
+  border-radius: 0.5rem; /* 8px */
   text-decoration: none;
-  font-size: 18px;
+  font-size: 1.125rem; /* 18px */
   font-weight: 500;
   transition: transform 0.2s ease;
 }
@@ -233,22 +230,22 @@ body {
 }
 
 .hero-content .cta-button img {
-  height: 24px;
+  height: 1.5rem; /* 24px */
 }
 
 /* ======================================================
-   == CORREÇÃO APLICADA AQUI                           ==
+   == SEÇÃO DE FEATURES (FOCO DA REFATORAÇÃO)          ==
    ====================================================== */
 .features-section {
-  position: absolute; /* Posição absoluta em relação ao .hero-container */
-  bottom: 0; /* Ancora na parte de baixo */
-  left: 0; /* Estica para a esquerda */
-  right: 0; /* Estica para a direita */
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
   display: flex;
   justify-content: space-around;
   align-items: stretch;
   background-color: rgba(210, 180, 140, 0.6);
-  padding: 40px 80px;
+  padding: 2.5rem 5rem; /* 40px 80px */
   color: #333333;
 }
 
@@ -258,33 +255,34 @@ body {
   align-items: center;
   text-align: center;
   width: 30%;
-  padding: 0 20px;
+  padding: 0 1.25rem; /* 20px */
 }
 
 .feature-card img {
-  height: 50px;
-  margin-bottom: 20px;
+  height: 3.125rem; /* 50px */
+  margin-bottom: 1.25rem; /* 20px */
 }
 
 .feature-card h3 {
-  font-size: 22px;
+  font-size: 1.375rem; /* 22px */
   font-weight: 700;
-  margin-bottom: 10px;
+  margin-bottom: 0.625rem; /* 10px */
 }
 
 .feature-card p {
-  font-size: 16px;
+  font-size: 1rem; /* 16px */
   line-height: 1.6;
   font-weight: 400;
 }
 
 .feature-card:not(:last-child) {
-  border-right: 3px solid rgba(0, 0, 0, 0.3);
+  border-right: 0.1875rem solid rgba(0, 0, 0, 0.3); /* 3px */
 }
 
+/* Animação de Scroll */
 .scroll-reveal {
   opacity: 0;
-  transform: translateY(40px);
+  transform: translateY(2.5rem); /* 40px */
   transition: all 0.8s ease-out;
   will-change: transform, opacity;
 }
@@ -295,138 +293,340 @@ body {
 }
 
 /* ======================================================
-   == MEDIA QUERIES (ORGANIZADAS)                      ==
+   == MEDIA QUERIES PARA TELAS DE ALTA RESOLUÇÃO (2K/4K) ==
    ====================================================== */
 
-/* Notebooks grandes (1440px a 1600px) */
-@media (max-width: 1600px) {
-  /* Ajustes sutis para telas um pouco menores que o design original */
-  .main-header {
-    padding: 25px 60px; /* Reduz o padding horizontal */
-  }
+/* Para telas maiores que Full HD (ex: QHD/2K - a partir de 1921px) */
+@media (min-width: 120.0625em) {
+  /* 1921px / 16px */
 
-  .logo img {
-    width: 320px; /* Diminui um pouco o logo */
-  }
-
-  .hero-content {
-    padding-left: 20%; /* Aproxima um pouco o conteúdo da borda */
-    padding-right: 60px;
-  }
-
-  .hero-content h1 {
-    font-size: 44px; /* Reduz a fonte do título principal */
-  }
-
-  .features-section {
-    padding: 35px 60px; /* Ajusta o padding para consistência */
-  }
-}
-
-@media (max-width: 1366px) {
   .hero-container {
-    height: 820px; /* Reduz a altura total para caber melhor na tela */
+    /* Aumenta a largura máxima para preencher melhor a tela */
+    max-width: 150rem; /* 2400px */
+    min-height: 75rem; /* 1200px */
   }
 
   .main-header {
-    padding: 20px 40px; /* Reduz ainda mais o padding */
-    height: 160px;
+    /* Aumenta o espaçamento do cabeçalho */
+    padding: 2.5rem 6.25rem; /* 40px 100px */
   }
 
   .logo img {
-    width: 280px; /* Logo significativamente menor */
-  }
-
-  .main-nav ul {
-    gap: 25px; /* Diminui o espaço entre os links da navegação */
+    /* Aumenta o tamanho do logo */
+    width: 25rem; /* 400px */
   }
 
   .main-nav a {
-    font-size: 17px;
-  }
-
-  .hero-content {
-    padding-left: 10%; /* Move o conteúdo mais para a esquerda */
-    padding-right: 40px;
-    padding-bottom: 15%; /* Sobe um pouco o bloco */
-    margin-top: 50px;
+    /* Aumenta a fonte do menu */
+    font-size: 1.25rem; /* 20px */
   }
 
   .hero-content h1 {
-    font-size: 40px;
+    /* Torna o título principal mais impactante */
+    font-size: 3.75rem; /* 60px */
   }
 
   .hero-content p {
-    font-size: 18px;
-    max-width: 600px; /* Limita a largura do parágrafo */
-  }
-
-  .hero-content .cta-button {
-    font-size: 17px;
-    padding: 14px 28px;
+    /* Melhora a legibilidade do parágrafo */
+    font-size: 1.375rem; /* 22px */
+    max-width: 55rem; /* 880px */
   }
 
   .features-section {
-    padding: 30px 40px;
+    /* Aumenta o espaçamento da seção inferior */
+    padding: 3.125rem 6.25rem; /* 50px 100px */
   }
 
   .feature-card h3 {
-    font-size: 20px;
+    /* Aumenta o título dos cards */
+    font-size: 1.5rem; /* 24px */
   }
 
   .feature-card p {
-    font-size: 15px;
+    /* Aumenta o texto dos cards */
+    font-size: 1.125rem; /* 18px */
   }
 }
 
-@media (max-width: 1280px) {
+/* Para telas muito grandes (ex: 4K/UHD - a partir de 2561px) */
+@media (min-width: 160.0625em) {
+  /* 2561px / 16px */
+
   .hero-container {
-    height: 800px; /* Altura ainda menor */
+    /* Expande ainda mais a largura máxima para telas 4K */
+    max-width: 190rem; /* 3040px */
+    min-height: 94rem; /* 1504px */
   }
 
   .main-header {
-    padding: 20px 30px; /* Padding mínimo para manter o alinhamento */
+    padding: 3rem 7.5rem; /* 48px 120px */
   }
 
   .logo img {
-    width: 260px;
+    width: 28.125rem; /* 450px */
   }
 
-  .main-nav ul {
-    gap: 20px;
-  }
-
-  .hero-content {
-    padding-left: 8%;
-    padding-right: 30px;
-    margin-top: 50px;
+  .main-nav a {
+    font-size: 1.375rem; /* 22px */
   }
 
   .hero-content h1 {
-    font-size: 36px; /* Fontes menores para evitar quebras de linha ruins */
+    font-size: 4.5rem; /* 72px */
   }
 
   .hero-content p {
-    font-size: 17px;
-    max-width: 550px;
-  }
-
-  .hero-content .cta-button {
-    font-size: 16px;
-    padding: 12px 24px;
+    font-size: 1.5rem; /* 24px */
+    max-width: 65rem; /* 1040px */
   }
 
   .features-section {
-    padding: 25px 30px;
-    align-items: flex-start; /* Alinha os cards no topo se tiverem alturas diferentes */
+    padding: 3.75rem 7.5rem; /* 60px 120px */
   }
 
   .feature-card h3 {
-    font-size: 18px;
+    font-size: 1.75rem; /* 28px */
   }
 
   .feature-card p {
-    font-size: 14px; /* Fonte menor para caber nos cards mais estreitos */
+    font-size: 1.25rem; /* 20px */
+  }
+}
+
+/* ======================================================
+   == MEDIA QUERIES (COM 'em' PARA ACESSIBILIDADE)     ==
+   ====================================================== */
+
+/* Notebooks grandes (até 1600px) */
+@media (max-width: 100em) {
+  /* 1600px / 16px */
+  .main-header {
+    padding: 1.5625rem 3.75rem; /* 25px 60px */
+  }
+  .logo img {
+    width: 20rem; /* 320px */
+  }
+  .hero-content {
+    padding-left: 20%;
+    padding-right: 3.75rem; /* 60px */
+  }
+  .hero-content h1 {
+    font-size: 2.75rem; /* 44px */
+  }
+  .features-section {
+    padding: 2.1875rem 3.75rem; /* 35px 60px */
+  }
+}
+
+/* Telas de ~1366px */
+@media (max-width: 85.375em) {
+  /* 1366px / 16px */
+  .hero-container {
+    height: 51.25rem; /* 820px */
+  }
+  .main-header {
+    padding: 1.25rem 2.5rem; /* 20px 40px */
+    height: 10rem; /* 160px */
+  }
+  .logo img {
+    width: 17.5rem; /* 280px */
+  }
+  .main-nav ul {
+    gap: 1.5625rem; /* 25px */
+  }
+  .main-nav a {
+    font-size: 1.0625rem; /* 17px */
+  }
+  .hero-content {
+    padding-left: 10%;
+    padding-right: 2.5rem; /* 40px */
+    padding-bottom: 15%;
+    margin-top: 3.125rem; /* 50px */
+  }
+  .hero-content h1 {
+    font-size: 2.5rem; /* 40px */
+  }
+  .hero-content p {
+    font-size: 1.125rem; /* 18px */
+    max-width: 37.5rem; /* 600px */
+  }
+  .hero-content .cta-button {
+    font-size: 1.0625rem; /* 17px */
+    padding: 0.875rem 1.75rem; /* 14px 28px */
+  }
+  .features-section {
+    padding: 1.875rem 2.5rem; /* 30px 40px */
+  }
+  .feature-card h3 {
+    font-size: 1.25rem; /* 20px */
+  }
+  .feature-card p {
+    font-size: 0.9375rem; /* 15px */
+  }
+}
+
+/* Telas de ~1280px */
+@media (max-width: 80em) {
+  /* 1280px / 16px */
+  .hero-container {
+    height: 50rem; /* 800px */
+  }
+  .main-header {
+    padding: 1.25rem 1.875rem; /* 20px 30px */
+  }
+  .logo img {
+    width: 16.25rem; /* 260px */
+  }
+  .main-nav ul {
+    gap: 1.25rem; /* 20px */
+  }
+  .hero-content {
+    padding-left: 8%;
+    padding-right: 1.875rem; /* 30px */
+    margin-top: 3.125rem; /* 50px */
+  }
+  .hero-content h1 {
+    font-size: 2.25rem; /* 36px */
+  }
+  .hero-content p {
+    font-size: 1.0625rem; /* 17px */
+    max-width: 34.375rem; /* 550px */
+  }
+  .hero-content .cta-button {
+    font-size: 1rem; /* 16px */
+    padding: 0.75rem 1.5rem; /* 12px 24px */
+  }
+  .features-section {
+    padding: 1.5625rem 1.875rem; /* 25px 30px */
+    align-items: flex-start;
+  }
+  .feature-card h3 {
+    font-size: 1.125rem; /* 18px */
+  }
+  .feature-card p {
+    font-size: 0.875rem; /* 14px */
     line-height: 1.5;
+  }
+}
+
+/* ======================================================
+   == RESPONSIVIDADE PARA CELULAR (ATÉ 768PX)          ==
+   ====================================================== */
+@media (max-width: 48em) {
+  /* 768px */
+
+  /* --- Ajustes Gerais da Seção Principal --- */
+  .hero-container {
+    height: auto;
+    min-height: 100vh; /* Ocupa a altura inteira da tela */
+    padding-bottom: 4em;
+  }
+
+  /* --- Estilos do Menu Hamburger --- */
+  .main-nav.desktop-nav {
+    display: none; /* Esconde o menu de desktop */
+  }
+  .main-header.fixed {
+    display: none; /* Esconde o menu fixo de desktop no mobile */
+  }
+
+  .mobile-nav-toggle {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3125em; /* 5px */
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 1001;
+  }
+  .hamburger-bar {
+    width: 2em; /* 32px */
+    height: 0.1875em; /* 3px */
+    background-color: #333333;
+    border-radius: 0.125em;
+  }
+
+  /* --- Estilos do Painel de Navegação Móvel --- */
+  .mobile-nav-panel {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(210, 180, 140, 0.98);
+    backdrop-filter: blur(5px);
+    z-index: 10000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transform: translateX(100%);
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .mobile-nav-panel.is-open {
+    transform: translateX(0);
+  }
+
+  .mobile-nav-close {
+    position: absolute;
+    top: 2em;
+    right: 2em;
+    background: none;
+    border: none;
+    font-size: 2.5em;
+    color: #333;
+    cursor: pointer;
+  }
+
+  .mobile-nav ul {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+  }
+  .mobile-nav li {
+    margin-bottom: 2em;
+  }
+  .mobile-nav a {
+    color: #333;
+    text-decoration: none;
+    font-size: 1.75em; /* Letras grandes para fácil toque */
+    font-weight: 600;
+  }
+
+  /* --- Conteúdo Principal Centralizado --- */
+  .hero-content {
+    align-items: center; /* Centraliza horizontalmente */
+    text-align: center; /* Centraliza o texto */
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+    padding-top: 5em;
+    padding-bottom: 2em;
+  }
+  .hero-content .badge {
+    margin-top: 2em;
+  }
+  .hero-content h1 {
+    font-size: 2.25em; /* 36px */
+  }
+  .hero-content p {
+    font-size: 1.125em; /* 18px */
+  }
+
+  /* --- Cards de Features Empilhados --- */
+  .features-section {
+    position: static; /* Remove o posicionamento absoluto */
+    flex-direction: column; /* Empilha os cards */
+    gap: 2.5em; /* Espaço entre os cards */
+    padding: 3em 1.5em;
+    background-color: rgba(210, 180, 140, 0.75);
+  }
+  .feature-card {
+    width: 100%;
+    border-right: none; /* Remove a borda direita */
+    padding-bottom: 2.5em;
+    border-bottom: 0.125em solid rgba(0, 0, 0, 0.2); /* Adiciona borda inferior */
+  }
+  .feature-card:last-child {
+    border-bottom: none; /* Remove a borda do último card */
+    padding-bottom: 0;
   }
 }

@@ -1,12 +1,12 @@
 /* ======================================================
-  == ESTILOS DA SEÇÃO DE CONTATO (VERSÃO AJUSTADA)    ==
+  == SEÇÃO DE CONTATO (REFATORADO COM 'EM')           ==
   ======================================================
 */
 
 /* Container principal da seção */
 .contact-section {
   width: 100%;
-  padding: 100px 60px;
+  padding: 6.25em 3.75em; /* 100px 60px */
   background-color: #e6ddcf;
   display: flex;
   justify-content: center;
@@ -18,26 +18,21 @@
 .contact-container {
   display: flex;
   align-items: center;
-  gap: 120px;
+  gap: 7.5em; /* 120px */
   width: 100%;
-  max-width: 1200px;
+  max-width: 75em; /* 1200px */
 }
-
-/* ======================================================
-  == MOLDURA DA IMAGEM ATUALIZADA                     ==
-  ======================================================
-*/
 
 /* Retângulo à esquerda para a imagem */
 .contact-image-placeholder {
   flex-shrink: 0;
-  width: 450px;
-  height: 650px;
-  background-color: #d2b48c; /* Cor de fundo que servirá de moldura */
-  border-radius: 15px;
+  width: 28.125em; /* 450px */
+  height: 40.625em; /* 650px */
+  background-color: #d2b48c;
+  border-radius: 0.9375em; /* 15px */
   overflow: hidden;
-  /* ATUALIZAÇÃO: Adicionado padding para criar o efeito de borda interna */
-  padding: 20px;
+  padding: 1.25em; /* 20px */
+  box-shadow: 0 0.625em 2.5em rgba(0, 0, 0, 0.1);
 }
 
 /* Imagem dentro do retângulo */
@@ -45,8 +40,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  /* ATUALIZAÇÃO: Adicionado border-radius para suavizar os cantos da imagem */
-  border-radius: 8px;
+  border-radius: 0.5em; /* 8px */
 }
 
 /* Bloco de informações de contato à direita */
@@ -54,38 +48,40 @@
   color: #333333;
 }
 
-.contact-info h2 {
-  font-size: 36px;
-  text-wrap: nowrap;
-  font-weight: 500;
+.contact-info h2,
+.contact-info h3 {
+  font-size: 2.25em; /* 36px */
   line-height: 1.4;
 }
 
+.contact-info h2 {
+  font-weight: 500;
+}
+
 .contact-info h3 {
-  font-size: 36px;
   font-weight: 700;
-  margin-top: 5px;
-  margin-bottom: 40px;
+  margin-top: 0.3125em; /* 5px */
+  margin-bottom: 2.5em; /* 40px */
 }
 
 /* Lista de links de redes sociais */
 .social-links {
   list-style: none;
   padding: 0;
-  margin-bottom: 50px;
+  margin-bottom: 3.125em; /* 50px */
 }
 
 .social-links li {
-  margin-bottom: 25px;
+  margin-bottom: 1.5625em; /* 25px */
 }
 
 .social-links a {
   display: inline-flex;
   align-items: center;
-  gap: 15px;
+  gap: 0.9375em; /* 15px */
   text-decoration: none;
   color: #333333;
-  font-size: 18px;
+  font-size: 1.125em; /* 18px */
   transition: color 0.3s ease;
 }
 
@@ -94,99 +90,159 @@
 }
 
 .social-links img {
-  height: 28px;
-  width: 28px;
+  height: 1.75em; /* 28px */
+  width: 1.75em; /* 28px */
 }
 
 /* Botão "Fale com o contador" */
 .contact-cta-button {
   display: inline-flex;
   align-items: center;
-  gap: 12px;
+  gap: 0.75em; /* 12px */
   background: linear-gradient(to right, #d2b48c, rgba(210, 180, 140, 0.5));
   color: #333333;
-  padding: 15px 30px;
-  border-radius: 8px;
+  padding: 0.9375em 1.875em; /* 15px 30px */
+  border-radius: 0.5em; /* 8px */
   text-decoration: none;
-  font-size: 18px;
+  font-size: 1.125em; /* 18px */
   font-weight: 500;
   border: 1px solid rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s ease, background-color 0.3s ease;
+  transition: transform 0.2s ease;
 }
 
 .contact-cta-button:hover {
-  background-color: #c8a97e;
-  transform: scale(1.03);
+  transform: scale(1.05);
 }
 
 .contact-cta-button img {
-  height: 24px;
+  height: 1.5em; /* 24px */
 }
-
 /* ======================================================
-   == RESPONSIVO: TELAS DE LAPTOP (ATÉ 1440PX)         ==
+   == RESPONSIVIDADE PARA TODAS AS TELAS (EM)          ==
    ====================================================== */
 
-@media (min-width: 1600px) {
+/* ======================================================
+   == RESPONSIVIDADE (FONTES CORRIGIDAS)               ==
+   ====================================================== */
+
+/* Telas 4K (a partir de 2560px) */
+@media (min-width: 160em) {
   .contact-container {
-    max-width: 1400px;
-    gap: 80px;
-    justify-content: center;
-  }
-
-  .contact-image-placeholder {
-    width: 420px;
-    height: 620px;
-  }
-
-  .contact-info h2,
-  .contact-info h3 {
-    font-size: 34px;
-  }
-}
-
-@media (max-width: 1440px) {
-  .contact-section {
-    padding: 80px 40px;
-  }
-  .contact-container {
-    gap: 60px; /* Diminui o espaço entre as colunas */
-    display: flex;
-    justify-content: center;
+    max-width: 93.75em; /* 1500px */
+    gap: 8.75em; /* 140px */
   }
   .contact-image-placeholder {
-    width: 380px; /* Diminui a largura da moldura */
-    height: 530px; /* Diminui a altura da moldura */
+    width: 34.375em; /* 550px */
+    height: 50em; /* 800px */
   }
   .contact-info h2,
   .contact-info h3 {
-    font-size: 28px; /* Diminui o tamanho dos títulos */
+    font-size: 3.5em; /* AUMENTADO: 56px */
+  }
+  .social-links a,
+  .contact-cta-button {
+    /* Botão adicionado para consistência */
+    font-size: 1.5em; /* AUMENTADO: 24px */
   }
 }
 
-/* ======================================================
-   == RESPONSIVO: TELAS MENORES (ATÉ 1024PX)           ==
-   ====================================================== */
-@media (max-width: 1024px) {
+/* Telas 2K (a partir de 1920px) */
+@media (min-width: 120em) {
+  .contact-container {
+    max-width: 87.5em; /* 1400px */
+  }
+  .contact-image-placeholder {
+    width: 31.25em; /* 500px */
+    height: 45.3125em; /* 725px */
+  }
+  .contact-info h2,
+  .contact-info h3 {
+    font-size: 2.75em; /* AUMENTADO: 44px */
+  }
+  .social-links a,
+  .contact-cta-button {
+    /* Botão adicionado para consistência */
+    font-size: 1.375em; /* AUMENTADO: 22px */
+  }
+}
+/* Telas de Desktop Menores (até 1600px) */
+@media (max-width: 100em) {
   .contact-section {
-    padding: 60px 20px;
-    height: auto; /* Altura se adapta ao conteúdo */
+    padding: 5em 2.5em; /* 80px 40px */
   }
   .contact-container {
-    flex-direction: column; /* Coloca a imagem em cima do texto */
-    gap: 40px;
+    gap: 5em; /* 80px */
   }
+  .contact-image-placeholder {
+    width: 26.25em; /* 420px */
+    height: 38.75em; /* 620px */
+  }
+  .contact-info h2,
+  .contact-info h3 {
+    font-size: 2.125em; /* 34px */
+  }
+  .social-links a,
+  .contact-cta-button {
+    font-size: 1.0625em; /* 17px */
+  }
+}
 
-  /* ATUALIZAÇÃO: Centralizando todos os elementos com Flexbox */
+/* Telas de Laptop (até 1440px) */
+@media (max-width: 90em) {
+  .contact-container {
+    gap: 3.75em; /* 60px */
+  }
+  .contact-image-placeholder {
+    width: 23.75em; /* 380px */
+    height: 33.125em; /* 530px */
+  }
+  .contact-info h2,
+  .contact-info h3 {
+    font-size: 1.75em; /* 28px */
+  }
+  .social-links a,
+  .contact-cta-button {
+    font-size: 1em; /* 16px */
+  }
+}
+
+/* Telas de Laptop Menores (até 1280px) */
+@media (max-width: 80em) {
+  .contact-container {
+    gap: 3.125em; /* 50px */
+    align-items: stretch;
+  }
+  .contact-image-placeholder {
+    width: 21.875em; /* 350px */
+    height: 31.25em; /* 500px */
+    padding: 1em;
+  }
+  .contact-info h2,
+  .contact-info h3 {
+    font-size: 1.625em; /* 26px */
+  }
+  .social-links {
+    margin-bottom: 2.5em;
+  }
+}
+
+/* Layout de Coluna Única (Tablets - até 1024px) */
+@media (max-width: 64em) {
+  .contact-section {
+    padding: 3.75em 1.25em; /* 60px 20px */
+    height: auto;
+  }
+  .contact-container {
+    flex-direction: column;
+    gap: 2.5em; /* 40px */
+  }
   .contact-info {
     display: flex;
     flex-direction: column;
-    align-items: center; /* Centraliza todos os itens */
-    text-align: center; /* Centraliza os textos */
+    align-items: center;
+    text-align: center;
   }
-
   .contact-info h2 {
-    /* Impede a quebra de linha do título */
     text-wrap: initial;
     white-space: normal;
   }

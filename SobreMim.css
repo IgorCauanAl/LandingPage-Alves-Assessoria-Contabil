@@ -1,25 +1,19 @@
 /* ======================================================
-  == ESTILOS DA SEÇÃO SOBRE MIM                       ==
+  == ESTILOS DA SEÇÃO SOBRE MIM (REFATORADO COM 'EM')  ==
   ======================================================
 */
 
 /* Container principal da seção */
 .about-section {
   width: 100%;
-  height: 1080px;
-  padding: 120px 60px;
+  min-height: 67.5em; /* 1080px */
+  padding: 7.5em 3.75em; /* 120px 60px */
   position: relative;
   overflow: hidden;
-
-  /* Coloque o caminho para a sua imagem de fundo aqui */
   background-image: url("Fotos/ApresentaçãoProfissional/Caduceu_reduzido-removebg-preview.png");
-
-  /* ATUALIZADO: 'contain' garante que a imagem inteira apareça, sem cortar */
   background-size: contain;
-
   background-position: center;
-  background-repeat: no-repeat; /* Adicionado para não repetir a imagem */
-
+  background-repeat: no-repeat;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -33,7 +27,6 @@
   left: 0;
   width: 100%;
   height: 100%;
-  /* #D2B48C com 50% de opacidade */
   background-color: rgba(210, 180, 140, 0.5);
   z-index: 1;
 }
@@ -49,7 +42,7 @@
 }
 
 .about-background-symbol img {
-  width: 380px;
+  width: 23.75em; /* 380px */
 }
 
 /* Container que agrupa imagem e texto */
@@ -58,26 +51,26 @@
   z-index: 3;
   display: flex;
   align-items: center;
-  gap: 60px;
-  max-width: 1400px;
+  gap: 3.75em; /* 60px */
+  max-width: 87.5em; /* 1400px */
+  width: 100%;
 }
 
 /* Container da imagem à esquerda */
 .about-image-container {
   flex-shrink: 0;
   background-color: #d2b48c;
-  padding: 15px;
-  border-radius: 20px;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
-  height: 730px;
+  padding: 0.9375em; /* 15px */
+  border-radius: 1.25em; /* 20px */
+  box-shadow: 0 0.625em 2.5em rgba(0, 0, 0, 0.15); /* 0 10px 40px */
 }
 
 .about-image-container img {
   display: block;
-  width: 450px;
-  min-height: 700px;
+  width: 28.125em; /* 450px */
+  min-height: 43.75em; /* 700px */
   object-fit: cover;
-  border-radius: 12px;
+  border-radius: 0.75em; /* 12px */
 }
 
 /* Container do texto à direita */
@@ -86,110 +79,181 @@
 }
 
 .about-text-container h2 {
-  font-size: 42px;
+  font-size: 2.625em; /* 42px */
   font-weight: 700;
-  margin-bottom: 5px;
+  margin-bottom: 0.3125em; /* 5px */
 }
 
 .about-text-container .registry {
-  font-size: 25px;
+  font-size: 1.5625em; /* 25px */
   font-weight: 400;
-  margin-bottom: 25px;
+  margin-bottom: 1.5625em; /* 25px */
   color: #555555;
 }
 
 .about-text-container p {
-  font-size: 20px;
+  font-size: 1.25em; /* 20px */
   line-height: 1.7;
-  margin-bottom: 20px;
+  margin-bottom: 1.25em; /* 20px */
 }
 
-/* Estilização da lista de especialidades */
 .about-text-container ul {
   list-style: none;
   padding-left: 0;
-  margin: 25px 0;
+  margin: 1.5625em 0; /* 25px */
 }
 
 .about-text-container li {
-  font-size: 16px;
+  font-size: 1em; /* 16px */
   line-height: 1.6;
-  padding-left: 25px;
+  padding-left: 1.5625em; /* 25px */
   position: relative;
-  margin-bottom: 15px;
+  margin-bottom: 0.9375em; /* 15px */
 }
 
 .about-text-container li::before {
   content: "✔";
   position: absolute;
   left: 0;
-  top: 3px;
+  top: 0.1875em; /* 3px */
   color: #966c30;
   font-weight: bold;
 }
 
 /* ======================================================
-   == RESPONSIVO: TELAS PEQUENAS DE COMPUTADOR         ==
+   == RESPONSIVIDADE PARA TODAS AS TELAS (EM)          ==
    ====================================================== */
 
-/* Media Query para notebooks e telas menores (até 1440px de largura) */
-@media (max-width: 1440px) {
-  .about-section {
-    /* Ajusta a altura da seção para se aproximar da altura da tela */
-    min-height: auto;
-    height: auto; /* A altura se ajustará ao conteúdo */
-    padding: 80px 40px; /* Diminui o espaçamento geral */
-  }
+/* ======================================================
+   == RESPONSIVIDADE (FONTES CORRIGIDAS)               ==
+   ====================================================== */
 
+/* Telas 4K (a partir de 2560px) */
+@media (min-width: 160em) {
   .about-container {
-    gap: 40px; /* Diminui o espaço entre a foto e o texto */
+    max-width: 112.5em; /* 1800px */
+    gap: 5em; /* 80px */
+    /* REMOVIDO: min-height para corrigir a centralização vertical */
   }
-
-  /* Diminui o tamanho do container da foto */
-  .about-image-container {
-    padding: 12px;
-    height: auto; /* Altura se ajusta à imagem */
-  }
-
-  /* Diminui a foto do profissional */
   .about-image-container img {
-    width: 350px; /* Largura da foto reduzida */
-    min-height: 500px;
+    width: 34.375em; /* 550px */
+    min-height: 53.125em; /* 850px */
   }
-
-  /* Comprime o texto */
   .about-text-container h2 {
-    font-size: 36px;
+    font-size: 4em; /* AUMENTADO: 64px */
   }
-
   .about-text-container .registry {
-    font-size: 18px;
+    font-size: 2.25em; /* AUMENTADO: 36px */
   }
-
   .about-text-container p {
-    font-size: 15px; /* Tamanho do parágrafo reduzido */
-    line-height: 1.6; /* Linhas mais próximas */
+    font-size: 1.75em; /* AUMENTADO: 28px */
   }
-
   .about-text-container li {
-    font-size: 15px; /* Tamanho da lista reduzido */
+    font-size: 1.375em; /* AUMENTADO: 22px */
   }
+}
 
-  /* Esconde o símbolo de fundo para não poluir o layout mais compacto */
+/* Telas 2K (a partir de 1920px) */
+@media (min-width: 120em) {
+  .about-container {
+    max-width: 100em; /* 1600px */
+    /* REMOVIDO: min-height para corrigir a centralização vertical */
+  }
+  .about-image-container img {
+    width: 31.25em; /* 500px */
+    min-height: 48.125em; /* 770px */
+  }
+  .about-text-container h2 {
+    font-size: 3.25em; /* AUMENTADO: 52px */
+  }
+  .about-text-container .registry {
+    font-size: 2em; /* AUMENTADO: 32px */
+  }
+  .about-text-container p {
+    font-size: 1.5em; /* AUMENTADO: 24px */
+  }
+  .about-text-container li {
+    font-size: 1.25em; /* AUMENTADO: 20px */
+  }
+}
+/* Telas de Desktop Menores (até 1600px) */
+@media (max-width: 100em) {
+  .about-section {
+    padding: 6.25em 3.125em; /* 100px 50px */
+  }
+  .about-container {
+    gap: 3.125em; /* 50px */
+  }
+  .about-image-container img {
+    width: 25em; /* 400px */
+    min-height: 37.5em; /* 600px */
+  }
+  .about-text-container h2 {
+    font-size: 2.375em; /* 38px */
+  }
+  .about-text-container .registry {
+    font-size: 1.25em; /* 20px */
+  }
+  .about-text-container p {
+    font-size: 1em; /* 16px */
+  }
+}
+
+/* Notebooks e Telas Menores (até 1440px) - VERSÃO REFATORADA DA SUA REGRA */
+@media (max-width: 90em) {
+  .about-section {
+    height: auto;
+    padding: 5em 2.5em; /* 80px 40px */
+  }
+  .about-container {
+    gap: 2.5em; /* 40px */
+  }
+  .about-image-container {
+    padding: 0.75em; /* 12px */
+    height: auto;
+  }
+  .about-image-container img {
+    width: 21.875em; /* 350px */
+    min-height: 31.25em; /* 500px */
+  }
+  .about-text-container h2 {
+    font-size: 2.25em; /* 36px */
+  }
+  .about-text-container .registry {
+    font-size: 1.125em; /* 18px */
+  }
+  .about-text-container p,
+  .about-text-container li {
+    font-size: 0.9375em; /* 15px */
+    line-height: 1.6;
+  }
   .about-background-symbol {
     display: none;
   }
 }
 
-/* Media Query para telas ainda menores (até 1024px), onde o layout quebra para uma coluna */
-@media (max-width: 1024px) {
+/* Telas de até 1280px */
+@media (max-width: 80em) {
+  .about-image-container img {
+    width: 18.75em; /* 300px */
+    min-height: 28.125em; /* 450px */
+  }
   .about-container {
-    flex-direction: column; /* Coloca a foto em cima do texto */
+    gap: 2em; /* 32px */
+  }
+  .about-text-container h2 {
+    font-size: 2em; /* 32px */
+  }
+}
+
+/* Layout de Coluna Única (Tablets - até 1024px) - VERSÃO REFATORADA DA SUA REGRA */
+@media (max-width: 64em) {
+  .about-container {
+    flex-direction: column;
     text-align: center;
   }
-
   .about-text-container ul {
-    text-align: left; /* Mantém a lista alinhada à esquerda para legibilidade */
-    display: inline-block; /* Permite centralizar o bloco da lista */
+    text-align: left;
+    display: inline-block;
   }
 }

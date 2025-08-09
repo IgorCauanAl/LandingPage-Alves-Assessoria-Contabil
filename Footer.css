@@ -1,12 +1,12 @@
 /* ======================================================
-  == ESTILOS DO RODAPÉ (FOOTER)                       ==
+  == ESTILOS DO RODAPÉ (REFATORADO COM 'EM')          ==
   ======================================================
 */
 
 /* Container principal do rodapé */
 .site-footer {
   width: 100%;
-  padding: 40px 80px;
+  padding: 2.5em 5em; /* 40px 80px */
   background: linear-gradient(to right, #d2b48c, rgba(210, 180, 140, 0.5));
   font-family: "Roboto", sans-serif;
   color: #333333;
@@ -17,17 +17,17 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 40px;
+  margin-bottom: 2.5em; /* 40px */
 }
 
 .footer-logo img {
-  width: 190px;
+  width: 11.875em; /* 190px */
   height: auto;
   object-fit: cover;
 }
 
 .footer-specialist-text p {
-  font-size: 16px;
+  font-size: 1em; /* 16px */
   font-weight: 500;
 }
 
@@ -35,9 +35,9 @@
 .footer-main-content {
   display: flex;
   justify-content: space-between;
-  gap: 40px;
-  padding-bottom: 40px;
-  border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+  gap: 2.5em; /* 40px */
+  padding-bottom: 2.5em; /* 40px */
+  border-bottom: 0.125em solid rgba(0, 0, 0, 0.1); /* 2px */
 }
 
 .footer-column {
@@ -45,42 +45,42 @@
 }
 
 .footer-column h4 {
-  font-size: 16px;
+  font-size: 1em; /* 16px */
   font-weight: 700;
-  margin-bottom: 20px;
+  margin-bottom: 1.25em; /* 20px */
 }
 
 /* Coluna 1 */
 .contact-details p {
-  margin-bottom: 15px;
-  font-size: 14px;
+  margin-bottom: 0.9375em; /* 15px */
+  font-size: 0.875em; /* 14px */
 }
 .email-link {
   display: flex;
   align-items: center;
-  gap: 8px;
-  margin-bottom: 30px;
+  gap: 0.5em; /* 8px */
+  margin-bottom: 1.875em; /* 30px */
 }
 .email-link img {
-  height: 18px;
+  height: 1.125em; /* 18px */
 }
 .email-link a {
   color: #333333;
   text-decoration: none;
-  font-size: 14px;
+  font-size: 0.875em; /* 14px */
 }
 .back-to-top {
   display: inline-block;
   background: linear-gradient(to right, #d2b48c, rgba(210, 180, 140, 0.9));
-  padding: 8px 15px;
-  border-radius: 5px;
+  padding: 0.5em 0.9375em; /* 8px 15px */
+  border-radius: 0.3125em; /* 5px */
   text-decoration: none;
   color: #333333;
-  font-size: 14px;
-  transition: background-color 0.3s ease;
+  font-size: 0.875em; /* 14px */
+  transition: transform 0.2s ease;
 }
 .back-to-top:hover {
-  background-color: #c8a97e;
+  transform: scale(1.05);
 }
 
 /* Coluna 2, 3 e 4 (Listas) */
@@ -91,13 +91,13 @@
 }
 .footer-socials li,
 .footer-menu li {
-  margin-bottom: 12px;
+  margin-bottom: 0.75em; /* 12px */
 }
 .footer-socials a,
 .footer-menu a {
   color: #333333;
   text-decoration: none;
-  font-size: 14px;
+  font-size: 0.875em; /* 14px */
   transition: color 0.3s ease;
 }
 .footer-socials a:hover,
@@ -107,24 +107,24 @@
 .footer-socials li {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 0.625em; /* 10px */
 }
 .footer-socials img {
-  height: 20px;
+  height: 1.25em; /* 20px */
 }
 
 /* Coluna 5 */
 .footer-contact-item {
   display: flex;
   align-items: flex-start;
-  gap: 10px;
-  margin-bottom: 20px;
-  font-size: 14px;
+  gap: 0.625em; /* 10px */
+  margin-bottom: 1.25em; /* 20px */
+  font-size: 0.875em; /* 14px */
   line-height: 1.6;
 }
 .footer-contact-item img {
-  height: 18px;
-  margin-top: 3px;
+  height: 1.125em; /* 18px */
+  margin-top: 0.1875em; /* 3px */
 }
 
 /* Barra inferior com créditos */
@@ -132,8 +132,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-top: 30px;
-  font-size: 14px;
+  padding-top: 1.875em; /* 30px */
+  font-size: 0.875em; /* 14px */
 }
 
 .footer-bottom-bar a {
@@ -147,84 +147,158 @@
 .developer-credit {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 0.5em; /* 8px */
 }
 
 .developer-credit img {
-  height: 20px;
+  height: 1.25em; /* 20px */
 }
 
-/* ===============================================
-   == RODAPÉ: RESPONSIVO PARA TELAS ≤ 1024px     ==
-   =============================================== */
-@media (max-width: 1024px) {
+/* Telas 4K (a partir de 2560px) */
+@media (min-width: 160em) {
   .site-footer {
-    padding: 30px 40px;
-    height: 60px;
+    padding: 3.75em 7.5em; /* 60px 120px */
   }
+  .footer-logo img {
+    width: 15.625em; /* 250px */
+  }
+  .footer-specialist-text p {
+    font-size: 1.5em; /* ANTES: 1.25em (24px) */
+  }
+  .footer-column h4 {
+    font-size: 1.625em; /* ANTES: 1.25em (26px) */
+  }
+  /* Ajuste geral para os textos menores */
+  .contact-details p,
+  .email-link a,
+  .footer-socials a,
+  .footer-menu a,
+  .footer-contact-item,
+  .footer-bottom-bar,
+  .back-to-top {
+    font-size: 1.25em; /* ANTES: 1.125em (20px) */
+  }
+}
 
+/* Telas 2K (a partir de 1920px) */
+@media (min-width: 120em) {
+  .site-footer {
+    padding: 3.125em 6.25em; /* 50px 100px */
+  }
+  .footer-logo img {
+    width: 13.75em; /* 220px */
+  }
+  .footer-specialist-text p {
+    font-size: 1.25em; /* ANTES: 1.125em (20px) */
+  }
+  .footer-column h4 {
+    font-size: 1.375em; /* ANTES: 1.125em (22px) */
+  }
+  /* Ajuste geral para os textos menores */
+  .contact-details p,
+  .email-link a,
+  .footer-socials a,
+  .footer-menu a,
+  .footer-contact-item,
+  .footer-bottom-bar,
+  .back-to-top {
+    font-size: 1.125em; /* ANTES: 1em (18px) */
+  }
+}
+
+/* Telas de Desktop Menores (até 1600px) */
+@media (max-width: 100em) {
+  .site-footer {
+    padding: 2.5em 3.75em; /* 40px 60px */
+  }
+  .footer-main-content {
+    gap: 1.875em; /* 30px */
+  }
+  .contact-details p,
+  .email-link a,
+  .footer-socials a,
+  .footer-menu a,
+  .footer-contact-item,
+  .footer-bottom-bar,
+  .back-to-top {
+    font-size: 0.8125em; /* 13px */
+  }
+}
+
+/* Telas de Laptop (até 1280px) */
+@media (max-width: 80em) {
+  .site-footer {
+    padding: 2.5em; /* 40px */
+  }
+  .footer-main-content {
+    flex-wrap: wrap; /* Permite que as colunas quebrem para a linha de baixo */
+    justify-content: flex-start;
+  }
+  .footer-column {
+    flex-basis: 30%; /* Faz com que as colunas tentem se agrupar */
+    min-width: 15.625em; /* 250px */
+  }
+}
+
+/* Layout de Coluna Única (Tablets - até 1024px) - VERSÃO REFATORADA */
+@media (max-width: 64em) {
+  .site-footer {
+    padding: 1.875em 2.5em; /* 30px 40px */
+    height: auto; /* CORRIGIDO: Altura automática para caber o conteúdo */
+  }
   .footer-top-bar {
     flex-direction: column;
     align-items: flex-start;
-    gap: 20px;
-    margin-bottom: 30px;
+    gap: 1.25em; /* 20px */
+    margin-bottom: 1.875em; /* 30px */
   }
-
   .footer-logo img {
-    width: 150px;
+    width: 9.375em; /* 150px */
   }
-
   .footer-specialist-text p {
-    font-size: 14px;
+    font-size: 0.875em; /* 14px */
   }
-
   .footer-main-content {
     flex-direction: column;
-    gap: 30px;
-    padding-bottom: 30px;
+    gap: 1.875em; /* 30px */
+    padding-bottom: 1.875em; /* 30px */
+    flex-wrap: nowrap; /* Impede a quebra de linha nesta resolução */
   }
-
   .footer-column {
     width: 100%;
+    flex-basis: auto;
   }
-
   .footer-column h4 {
-    font-size: 15px;
-    margin-bottom: 15px;
+    font-size: 0.9375em; /* 15px */
+    margin-bottom: 0.9375em; /* 15px */
   }
-
   .contact-details p,
   .email-link a,
   .footer-menu a,
   .footer-socials a,
-  .footer-contact-item {
-    font-size: 13px;
+  .footer-contact-item,
+  .back-to-top {
+    font-size: 0.8125em; /* 13px */
   }
-
   .email-link img,
   .footer-socials img,
   .footer-contact-item img {
-    height: 16px;
+    height: 1em; /* 16px */
   }
-
   .back-to-top {
-    font-size: 13px;
-    padding: 6px 12px;
+    padding: 0.375em 0.75em; /* 6px 12px */
   }
-
   .footer-bottom-bar {
     flex-direction: column;
-    gap: 15px;
-    font-size: 13px;
+    gap: 0.9375em; /* 15px */
+    font-size: 0.8125em; /* 13px */
     text-align: center;
-    padding-top: 20px;
+    padding-top: 1.25em; /* 20px */
   }
-
   .developer-credit {
     justify-content: center;
   }
-
   .developer-credit img {
-    height: 18px;
+    height: 1.125em; /* 18px */
   }
 }
