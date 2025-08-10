@@ -234,6 +234,13 @@
     max-width: 100%;
     text-align: center;
   }
+
+  /* --- AJUSTE ADICIONADO --- */
+  /* Reduz o espaçamento entre o título e o botão */
+  .testimonials-text-content h2 {
+    margin-bottom: 0.8em; /* ANTES ERA 2.5em */
+  }
+
   /* Mostra apenas um depoimento por vez */
   .testimonial-card {
     flex: 0 0 100%;
@@ -241,5 +248,10 @@
   .testimonials-carousel-wrapper {
     width: 100%;
     max-width: 28.125em; /* Limita a largura do carrossel (450px) */
+  }
+
+  .carousel-arrow.left-arrow,
+  .carousel-arrow.right-arrow {
+    display: none;
   }
 }
