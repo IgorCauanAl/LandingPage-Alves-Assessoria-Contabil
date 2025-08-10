@@ -7,7 +7,13 @@
 .contact-section {
   width: 100%;
   padding: 6.25em 3.75em; /* 100px 60px */
-  background-color: #e6ddcf;
+  background: 
+    /* Camada de cima: O gradiente */ linear-gradient(
+      to left,
+      rgba(210, 180, 140, 0.9) 30%,
+      rgba(210, 180, 140, 0) 70%
+    )
+    /* Camada de baixo: A cor de fundo original */ #e6ddcf;
   display: flex;
   justify-content: center;
   align-items: center;

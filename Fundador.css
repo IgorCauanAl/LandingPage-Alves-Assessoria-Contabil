@@ -18,14 +18,15 @@
   background: 
     /* Camada de cima: O gradiente */ linear-gradient(
       to left,
-      rgba(210, 180, 140, 0.5) 30%,
+      rgba(210, 180, 140, 0.9) 30%,
       rgba(210, 180, 140, 0) 70%
     ),
     /* Camada de baixo: A cor de fundo original */ #e6ddcf;
 }
+
 .founder-bg-logo {
   position: absolute;
-  right: -10em;
+  right: -8em;
   bottom: -14em;
   width: 75em;
   height: 80em;
@@ -56,7 +57,7 @@
 .founder-content-box {
   position: absolute;
   top: 6.25em; /* 100px */
-  width: 46.875em; /* 750px */
+  width: 55.875em; /* 750px */
   height: 25em; /* 400px */
   background-color: rgba(210, 180, 140, 0.9);
   border-radius: 0.9375em;
@@ -75,8 +76,8 @@
 /* Foto do fundador */
 .founder-photo {
   position: absolute;
-  top: 4.6875em; /* 75px */
-  left: 0;
+  top: 1em;
+  left: -4em;
   width: 21.875em; /* 350px */
   height: 28.125em; /* 450px */
   z-index: 3; /* Camada 3: Acima da caixa de texto */
@@ -96,35 +97,156 @@
 /* ======================================================
    == RESPONSIVIDADE (NOVA VERSÃO)                     ==
    ====================================================== */
+/* ======================================================
+   == RESPONSIVIDADE PARA TELAS GRANDES (2K E 4K)      ==
+   ====================================================== */
 
-@media (max-width: 64em) {
-  /* Abaixo de 1024px */
+/* Telas 2K (a partir de 1921px) */
+@media (min-width: 120.0625em) {
   .founder-container {
-    height: auto;
-    flex-direction: column;
-    position: static;
-    gap: 1.5em;
-  }
-  .founder-title,
-  .founder-content-box,
-  .founder-photo {
-    position: static;
-    width: 100%;
-    max-width: 31.25em; /* 500px */
+    width: 71.875em; /* 1150px */
+    height: 39.375em; /* 630px */
   }
   .founder-title {
-    text-align: center;
-    order: -1; /* Título vem primeiro */
+    font-size: 3em; /* 48px */
   }
   .founder-content-box {
-    padding: 2em;
-    margin-top: -6.25em; /* Efeito de sobreposição no mobile */
-    padding-top: 5em;
+    top: 7.5em; /* 120px */
+    width: 53.125em; /* 850px */
+    height: 28.125em; /* 450px */
+    padding-left: 17.5em; /* 280px */
+  }
+  .founder-text {
+    font-size: 1.25em; /* 20px */
   }
   .founder-photo {
+    top: 5.625em; /* 90px */
+    width: 25em; /* 400px */
     height: 31.25em; /* 500px */
   }
   .founder-bg-logo {
-    display: none;
+    right: -5em;
+    bottom: -10em;
+    width: 80em;
+  }
+}
+
+/* Telas 4K (a partir de 2561px) */
+@media (min-width: 160.0625em) {
+  .founder-container {
+    margin-top: 2em;
+    width: 84.375em; /* 1350px */
+    height: 46.875em; /* 750px */
+  }
+  .founder-title {
+    font-size: 3.5em; /* 56px */
+  }
+  .founder-content-box {
+    top: 8.75em; /* 140px */
+    width: 65.5em; /* 1000px */
+    height: 31.25em; /* 500px */
+    padding-left: 20em; /* 320px */
+  }
+  .founder-text {
+    font-size: 1.375em; /* 22px */
+  }
+  .founder-photo {
+    top: 1em;
+    left: -1em;
+    width: 28.125em; /* 450px */
+    height: 34.375em; /* 550px */
+  }
+  .founder-bg-logo {
+    right: 16em;
+    bottom: -14em;
+    width: 90em;
+  }
+}
+
+/* ======================================================
+   == RESPONSIVIDADE INTERMEDIÁRIA (NOVA VERSÃO)       ==
+   ====================================================== */
+
+/* Telas de até 1600px */
+@media (max-width: 100em) {
+  .founder-container {
+    width: 56.25em; /* 900px */
+    height: 31.25em; /* 500px */
+  }
+  .founder-title {
+    font-size: 2.375em; /* 38px */
+  }
+  .founder-content-box {
+    width: 55em; /* 650px */
+    height: 21.875em; /* 350px */
+    padding-left: 13.75em; /* 220px */
+  }
+  .founder-photo {
+    width: 20em; /* 320px */
+    height: 25em; /* 400px */
+    left: -7em;
+    top: 1em;
+  }
+  .founder-bg-logo {
+    /* Reposiciona a logo para acompanhar o conteúdo */
+    right: -5em;
+    bottom: -15em;
+    width: 65em;
+  }
+}
+
+/* Telas de até 1440px */
+@media (max-width: 90em) {
+  .founder-container {
+    width: 50em; /* 800px */
+    height: 28.125em; /* 450px */
+  }
+  .founder-title {
+    font-size: 2.25em; /* 36px */
+  }
+  .founder-content-box {
+    width: 50.875em; /* 750px */
+    height: 20em; /* 320px */
+    padding-left: 12.5em; /* 200px */
+    top: 5.625em; /* 90px */
+  }
+  .founder-photo {
+    width: 18.75em; /* 300px */
+    height: 23.4375em; /* 375px */
+    top: -1em; /* 50px */
+    left: -8em;
+  }
+  .founder-bg-logo {
+    right: -6em;
+    bottom: -22em;
+    width: 65em;
+    height: 95em;
+  }
+}
+
+/* Telas de até 1280px */
+@media (max-width: 80em) {
+  .founder-container {
+    width: 100%;
+    max-width: 46.875em; /* 750px */
+    height: 28.125em; /* 450px */
+  }
+  .founder-title {
+    font-size: 2.125em; /* 34px */
+  }
+  .founder-content-box {
+    width: 95%;
+    padding-left: 10em; /* 160px */
+  }
+  .founder-photo {
+    width: 17.5em; /* 280px */
+    height: 21.875em; /* 350px */
+    top: 1em;
+  }
+  .founder-bg-logo {
+    right: 1;
+    bottom: -5em;
+    width: 65em;
+    height: 60em;
   }
 }

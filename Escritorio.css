@@ -65,6 +65,7 @@
 
 /* Coluna das imagens à direita */
 .office-images {
+  position: relative;
   flex: 1.5;
   display: grid; /* Usando grid para um alinhamento mais robusto */
   grid-template-columns: 1fr 1fr; /* Duas colunas de tamanho igual */
@@ -85,7 +86,8 @@
   transform: scale(1.03);
 }
 
-.carousel-arrow-office {
+/* Estilo das setas do carrossel */
+.carousel-arrow {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -100,17 +102,21 @@
   font-size: 1.5em; /* 24px */
   font-weight: bold;
   cursor: pointer;
+  z-index: 10;
   transition: background-color 0.3s ease;
   user-select: none;
 }
 
-.carousel-arrow-office img {
-  height: 1.25em; /* 20px */
-  width: 1.25em; /* 20px */
+.carousel-arrow:hover {
+  background-color: #ffffff;
 }
 
-.carousel-arrow-office:hover {
-  background-color: #ffffff;
+.left-arrow {
+  left: 10em; /* 10px da borda esquerda */
+}
+
+.right-arrow {
+  right: 0.625em; /* 10px da borda direita */
 }
 
 /* ======================================================
