@@ -232,24 +232,44 @@
   }
 }
 
-/* Layout de Coluna Única (Tablets - até 1024px) */
+/* ===============================================
+   == RESPONSIVO: TABLETS (ATÉ 1024PX)           ==
+   =============================================== */
 @media (max-width: 64em) {
+  /* 1024px */
+
   .contact-section {
-    padding: 3.75em 1.25em; /* 60px 20px */
+    padding: 5em 2.5em; /* 80px 40px */
     height: auto;
   }
+
   .contact-container {
     flex-direction: column;
-    gap: 2.5em; /* 40px */
+    gap: 2.5em; /* Espaço entre a imagem e o bloco de texto */
+    align-items: center; /* ADICIONADO: Centraliza a imagem e o texto */
   }
+
+  .contact-image-placeholder {
+    width: 80%; /* Ocupa 80% da largura da tela */
+    max-width: 25em; /* Limita a largura máxima em 400px */
+    height: auto; /* Altura se ajusta ao conteúdo */
+  }
+
   .contact-info {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
   }
-  .contact-info h2 {
-    text-wrap: initial;
+
+  .contact-info h2,
+  .contact-info h3 {
+    font-size: 2em; /* Ajusta o tamanho da fonte (32px) */
+    text-wrap: balance; /* Tenta equilibrar as linhas do título */
     white-space: normal;
+  }
+
+  .social-links {
+    margin-bottom: 2.5em;
   }
 }

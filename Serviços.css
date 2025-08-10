@@ -429,46 +429,146 @@ body {
     right: 7.5rem; /* 120px */
   }
 }
-/* ===============================================
-   == RESPONSIVO: TELAS PEQUENAS (ATÉ 1024PX)   ==
-   =============================================== */
+
+/* ======================================================
+   == RESPONSIVO PARA TABLETS (ATÉ 1024PX) - NOVO LAYOUT ==
+   ====================================================== */
 @media (max-width: 64em) {
   /* 1024px */
+
   .services-section {
     height: auto;
-    padding: 3.75rem 1.25rem; /* 60px 20px */
+    padding: 5em 2em; /* 80px 32px */
   }
 
+  .services-header h2 {
+    font-size: 2.25em; /* 36px */
+  }
+  .services-header p {
+    font-size: 1.25em; /* 20px */
+  }
+
+  /* --- Transforma o container em um grid --- */
   .services-container {
     position: static;
     width: 100%;
     height: auto;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 1.5625rem; /* 25px */
+    display: grid; /* Layout em grade */
+    grid-template-columns: 1fr 1fr; /* Duas colunas de tamanho igual */
+    gap: 1.5em; /* Espaçamento entre os cards */
+    max-width: 43.75em; /* 700px, para não ficar muito largo */
   }
 
-  .service-card {
-    position: static;
-    transform: none !important;
-    width: 100%;
-    max-width: 20rem; /* 320px */
-    min-height: 8.75rem; /* 140px */
-  }
-
-  .service-card:hover {
-    transform: scale(1.05) !important;
-  }
-
+  /* Esconde a logo de fundo que não é mais necessária */
   .central-logo {
     display: none;
   }
 
+  /* --- Remove o posicionamento absoluto dos cards --- */
+  .service-card {
+    position: static;
+    width: 100%; /* Ocupa 100% da sua coluna no grid */
+    height: 9.375em; /* 150px - Altura fixa para todos os cards */
+    transform: none !important; /* Reseta qualquer transformação */
+  }
+
+  /* --- Ajuste específico para o último card centralizado --- */
+  /* Seleciona o último card e o posiciona no centro da grade */
+  .service-card:last-child {
+    grid-column: 1 / -1; /* Faz o card ocupar as duas colunas */
+    justify-self: center; /* Centraliza o card em si */
+    width: calc(50% - 0.75em); /* Metade da largura total menos metade do gap */
+  }
+}
+
+/* ===============================================
+   == RESPONSIVO: TELAS DE CELULAR (ATÉ 768PX)   ==
+   =============================================== */
+@media (max-width: 48em) {
+  /* 768px */
+
+  /* Estilos comuns para celular (vertical e horizontal) */
+  .services-section {
+    height: auto;
+    padding-top: 5em;
+    padding-bottom: 5em;
+  }
+  .central-logo {
+    display: none; /* Logo de fundo é escondida */
+  }
   .services-header h2 {
-    font-size: 2rem; /* 32px */
+    font-size: 2em; /* 32px */
   }
   .services-header p {
-    font-size: 1.25rem; /* 20px */
+    font-size: 1.125em; /* 18px */
+  }
+
+  /* --- CELULAR NA VERTICAL (PORTRAIT) --- */
+  @media (orientation: portrait) {
+    .services-section {
+      padding-left: 1.5em;
+      padding-right: 1.5em;
+    }
+    .services-container {
+      position: static;
+      width: 100%;
+      height: auto;
+      display: flex;
+      flex-direction: column; /* Força a direção de coluna */
+      align-items: center; /* Centraliza os cards */
+      gap: 1.875em; /* 30px */
+    }
+    .service-card {
+      position: static;
+      transform: none !important; /* Reseta transformações */
+      width: 100%;
+      max-width: 21.875em; /* 350px */
+      min-height: 8.75em; /* 140px */
+    }
+  }
+
+  /* --- CELULAR NA HORIZONTAL (LANDSCAPE) --- */
+  @media (orientation: landscape) {
+    .services-section {
+      /* Garante que a seção ocupe a altura da tela curta */
+      min-height: 100vh;
+      padding-left: 0;
+      padding-right: 0;
+    }
+    .services-container {
+      position: static;
+      width: 100%;
+      height: auto;
+      display: flex;
+      gap: 1.25em; /* 20px */
+
+      /* Lógica do Carrossel Horizontal */
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      padding: 0 2em; /* Espaço nas laterais para efeito 'espiada' */
+      scroll-padding: 0 2em;
+    }
+
+    /* Esconde a barra de rolagem */
+    .services-container::-webkit-scrollbar {
+      display: none;
+    }
+    .services-container {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
+    .service-card {
+      position: static;
+      transform: none !important;
+
+      /* Cada card ocupa 70% da tela, criando o efeito carrossel */
+      flex: 0 0 70%;
+      scroll-snap-align: center;
+      max-width: 18.75em; /* 300px */
+      min-height: 10em; /* 160px */
+    }
   }
 }

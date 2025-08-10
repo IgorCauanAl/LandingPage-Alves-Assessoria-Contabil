@@ -240,65 +240,90 @@
   }
 }
 
-/* Layout de Coluna Única (Tablets - até 1024px) - VERSÃO REFATORADA */
+/* ===============================================
+   == RESPONSIVO: TABLETS (ATÉ 1024PX)           ==
+   =============================================== */
 @media (max-width: 64em) {
+  /* 1024px */
+
   .site-footer {
-    padding: 1.875em 2.5em; /* 30px 40px */
-    height: auto; /* CORRIGIDO: Altura automática para caber o conteúdo */
+    padding: 2.5em; /* 40px */
   }
+
+  /* Barra superior: empilha logo e texto, mas centraliza */
   .footer-top-bar {
     flex-direction: column;
-    align-items: flex-start;
     gap: 1.25em; /* 20px */
-    margin-bottom: 1.875em; /* 30px */
+    text-align: center;
   }
-  .footer-logo img {
-    width: 9.375em; /* 150px */
-  }
-  .footer-specialist-text p {
-    font-size: 0.875em; /* 14px */
-  }
+
+  /* Conteúdo principal com colunas que quebram a linha */
   .footer-main-content {
-    flex-direction: column;
-    gap: 1.875em; /* 30px */
-    padding-bottom: 1.875em; /* 30px */
-    flex-wrap: nowrap; /* Impede a quebra de linha nesta resolução */
+    flex-wrap: wrap; /* Permite que as colunas quebrem para a linha de baixo */
+    justify-content: space-between;
+    gap: 2.5em 1.25em; /* Espaço vertical e horizontal */
   }
+
+  /* Faz com que cada coluna ocupe um espaço definido */
   .footer-column {
-    width: 100%;
-    flex-basis: auto;
+    flex-basis: 45%; /* Tenta encaixar duas colunas por linha */
+    min-width: 15.625em; /* 250px, largura mínima antes de quebrar */
   }
-  .footer-column h4 {
-    font-size: 0.9375em; /* 15px */
-    margin-bottom: 0.9375em; /* 15px */
-  }
-  .contact-details p,
-  .email-link a,
-  .footer-menu a,
-  .footer-socials a,
-  .footer-contact-item,
-  .back-to-top {
-    font-size: 0.8125em; /* 13px */
-  }
-  .email-link img,
-  .footer-socials img,
-  .footer-contact-item img {
-    height: 1em; /* 16px */
-  }
-  .back-to-top {
-    padding: 0.375em 0.75em; /* 6px 12px */
-  }
+
+  /* Ajuste para a barra inferior */
   .footer-bottom-bar {
     flex-direction: column;
-    gap: 0.9375em; /* 15px */
-    font-size: 0.8125em; /* 13px */
+    gap: 1em; /* 16px */
     text-align: center;
-    padding-top: 1.25em; /* 20px */
+    padding-top: 1.5em; /* 24px */
   }
   .developer-credit {
     justify-content: center;
   }
-  .developer-credit img {
-    height: 1.125em; /* 18px */
+}
+
+/* ===============================================
+   == RESPONSIVO: TELAS DE CELULAR (ATÉ 768PX)   ==
+   =============================================== */
+@media (max-width: 48em) {
+  /* 768px */
+
+  .site-footer {
+    padding: 2.5em 1.5em; /* 40px 24px */
+  }
+
+  /* Centraliza o conteúdo da barra superior */
+  .footer-top-bar {
+    align-items: center;
+    text-align: center;
+  }
+
+  /* Diminui os espaçamentos entre as colunas */
+  .footer-main-content {
+    gap: 1.5em; /* 24px */
+  }
+
+  .footer-column {
+    /* Adiciona um separador sutil entre as colunas no modo vertical */
+    padding-bottom: 1.5em;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  }
+
+  .footer-column:last-child {
+    border-bottom: none; /* Remove a borda do último elemento */
+  }
+
+  .contact-details p,
+  .email-link a,
+  .footer-menu a,
+  .footer-socials a,
+  .footer-contact-item {
+    font-size: 0.875em; /* Aumenta um pouco a fonte para melhor leitura (14px) */
+  }
+
+  /* Centraliza o conteúdo da barra inferior */
+  .footer-bottom-bar {
+    gap: 1em; /* 16px */
+    padding-top: 1.5em; /* 24px */
   }
 }

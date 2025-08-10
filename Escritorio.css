@@ -213,58 +213,134 @@
   }
 }
 
-/* Layout de Coluna Única (Tablets - até 1024px) */
-/* Layout de Coluna Única (Tablets - até 1024px) */
+/* ===============================================
+   == RESPONSIVO: TABLETS (ATÉ 1024PX)           ==
+   =============================================== */
 @media (max-width: 64em) {
+  /* 1024px */
+
   .office-section {
-    padding: 3.75em 1.25em; /* 60px 20px */
+    padding: 3.75em 1.5em; /* 60px 24px */
     min-height: 0;
     height: auto;
   }
+
+  .office-title {
+    text-align: center;
+    font-size: 2.25em; /* 36px */
+  }
+
+  /* Organiza o conteúdo em coluna única */
+  .office-content-block {
+    flex-direction: column;
+    padding: 2.5em; /* 40px */
+    gap: 2.5em; /* 40px */
+  }
+
+  .office-text {
+    max-width: 100%;
+    text-align: center;
+  }
+  .office-text p {
+    font-size: 1.0625em; /* 17px */
+  }
+
+  /* --- CARROSSEL DE IMAGENS COM ROLAGEM E "ESPIADA" --- */
+  .office-images {
+    width: 100%;
+    display: flex;
+    gap: 1.25em; /* Espaço entre as imagens */
+    overflow-x: auto; /* Habilita a rolagem horizontal */
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    border-radius: 0.75em;
+    padding: 0 1.5em;
+    scroll-padding: 0 1.5em;
+  }
+
+  /* Esconde a barra de rolagem */
+  .office-images::-webkit-scrollbar {
+    display: none;
+  }
+  .office-images {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .office-images img {
+    /* Cada imagem ocupa 85% do espaço, revelando a próxima */
+    flex: 0 0 85%;
+    scroll-snap-align: center;
+    height: 18.75em; /* 300px - Uma altura maior para tablets */
+  }
+
+  .office-images .carousel-arrow {
+    display: none;
+  }
+}
+
+/* ======================================================
+   == RESPONSIVIDADE APENAS PARA CELULAR (ATÉ 768PX)   ==
+   ====================================================== */
+@media (max-width: 48em) {
+  /* 768px - Ponto de quebra para celulares */
+
+  /* Ajusta o espaçamento da seção para telas pequenas */
+  .office-section {
+    padding: 3.75em 1.5em;
+    min-height: 0;
+    height: auto;
+  }
+
   .office-title {
     text-align: center;
   }
+
+  /* Organiza o conteúdo em uma coluna */
   .office-content-block {
     flex-direction: column;
-    padding: 1.875em; /* 30px */
-    padding-bottom: 3.125em; /* 50px - Aumenta o padding inferior */
-    gap: 1.875em; /* 30px */
+    padding: 1.875em;
+    padding-bottom: 3.125em;
+    gap: 1.875em;
   }
+
   .office-text {
     max-width: 100%;
     text-align: center;
   }
 
-  /* --- AJUSTE PARA CARROSSEL DE UMA IMAGEM --- */
+  /* --- CARROSSEL DE IMAGENS COM EFEITO "ESPIADA" --- */
   .office-images {
     width: 100%;
-    display: flex; /* Muda de grid para flex */
-    gap: 1em; /* Espaço entre as imagens no carrossel */
-    overflow-x: auto; /* Habilita a rolagem horizontal */
-    scroll-snap-type: x mandatory; /* Ativa o "snap" para travar em cada imagem */
-    -webkit-overflow-scrolling: touch; /* Melhora a experiência em iOS */
-    border-radius: 0.75em; /* Adiciona borda arredondada ao container */
+    display: flex;
+    gap: 1em;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    border-radius: 0.75em;
+    padding: 0 1.25em;
+    scroll-padding: 0 1.25em;
   }
 
-  /* Esconde a barra de rolagem (opcional, mas recomendado) */
+  /* Esconde a barra de rolagem */
   .office-images::-webkit-scrollbar {
     display: none;
   }
   .office-images {
-    -ms-overflow-style: none; /* IE e Edge */
-    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none;
+    scrollbar-width: none;
   }
 
-  /* Cada imagem agora é um "slide" de 100% da largura */
+  /* Cada imagem ocupa 90% para a próxima "espiar" */
   .office-images img {
-    flex: 0 0 100%;
-    scroll-snap-align: start;
-    height: 15.625em; /* 250px - Altura ajustada para mobile */
+    flex: 0 0 90%;
+    scroll-snap-align: center; /* Centraliza a imagem ativa */
+    height: 15.625em;
   }
 
-  /* --- AJUSTE ADICIONADO: Esconde as setas no celular --- */
-  .carousel-arrow.left-arrow,
-  .carousel-arrow.right-arrow {
+  /* Esconde as setas no celular */
+  .carousel-arrow.left-arrow-office,
+  .carousel-arrow.right-arrow-office {
     display: none;
   }
 }

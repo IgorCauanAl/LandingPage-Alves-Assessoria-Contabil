@@ -252,6 +252,83 @@
 }
 
 /* ======================================================
+   == RESPONSIVO PARA TABLETS E CELULARES (ATÉ 1024PX) ==
+   ====================================================== */
+@media (max-width: 64em) {
+  /* 1024px */
+
+  .founder-section {
+    padding: 4em 1.5em; /* 64px 24px */
+    min-height: auto;
+    height: auto;
+  }
+
+  /* 1. Símbolo de fundo posicionado no centro */
+  .founder-bg-logo {
+    width: 28.125em; /* 450px */
+    height: auto;
+    opacity: 0.05; /* Deixa um pouco mais visível */
+    top: 50%;
+    left: 50%;
+    bottom: auto; /* Reseta o posicionamento antigo */
+    right: auto; /* Reseta o posicionamento antigo */
+    transform: translate(-50%, -50%); /* Técnica para centralização perfeita */
+  }
+
+  /* 2. Conteúdo em coluna única */
+  .founder-container {
+    position: static; /* Remove o posicionamento relativo */
+    height: auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5em;
+  }
+
+  /* Remove o posicionamento absoluto de todos os filhos */
+  .founder-title,
+  .founder-photo,
+  .founder-content-box {
+    position: static;
+    width: 100%;
+    max-width: 28em; /* Aumenta um pouco a largura máxima para tablets (448px) */
+  }
+
+  /* 3. Título acima de tudo */
+  .founder-title {
+    order: -2; /* Garante que o título venha primeiro */
+    text-align: center;
+    font-size: 2.25em; /* 36px */
+    margin-bottom: 1em;
+  }
+
+  /* 4. Foto abaixo do título */
+  .founder-photo {
+    order: -1; /* Garante que a foto venha após o título */
+    width: 80%;
+    height: auto; /* Altura automática para manter proporção */
+    max-width: 21.875em; /* Aumenta um pouco para tablets (350px) */
+    left: auto;
+    top: auto;
+  }
+
+  /* 5. Caixa de texto abaixo da foto */
+  .founder-content-box {
+    width: 100%;
+    height: auto;
+    padding: 1.5em; /* Padding uniforme */
+    text-align: center;
+    background-color: transparent; /* Remove o fundo para não conflitar com a logo */
+    box-shadow: none; /* Remove a sombra */
+  }
+
+  .founder-text {
+    font-size: 1.0625em; /* Aumenta a fonte para tablets (17px) */
+  }
+}
+
+/* ======================================================
    == RESPONSIVO PARA CELULARES (ATÉ 768px)            ==
    ====================================================== */
 @media (max-width: 48em) {

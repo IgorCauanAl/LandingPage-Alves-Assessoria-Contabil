@@ -246,14 +246,109 @@
   }
 }
 
-/* Layout de Coluna Única (Tablets - até 1024px) - VERSÃO REFATORADA DA SUA REGRA */
+/* ===============================================
+   == RESPONSIVO: TABLETS (ATÉ 1024PX)           ==
+   =============================================== */
 @media (max-width: 64em) {
+  /* 1024px */
+
+  .about-section {
+    height: auto;
+    padding: 5em 2.5em; /* Espaçamento para tablets */
+  }
+
+  /* 1. Layout em coluna única */
+  .about-container {
+    flex-direction: column; /* Coloca a foto em cima do texto */
+    text-align: center;
+    gap: 2.5em; /* Espaço entre a foto e o bloco de texto */
+  }
+
+  /* 2. Ajuste da imagem */
+  .about-image-container {
+    padding: 0.75em; /* 12px */
+    width: 60%; /* Moldura um pouco mais larga que no celular */
+    max-width: 25em; /* Limita em 400px */
+    height: auto;
+  }
+  .about-image-container img {
+    width: 100%;
+    min-height: initial; /* Remove altura mínima */
+    height: auto;
+  }
+
+  /* 3. Ajuste das fontes */
+  .about-text-container h2 {
+    font-size: 2.25em; /* 36px */
+  }
+  .about-text-container .registry {
+    font-size: 1.125em; /* 18px */
+  }
+  .about-text-container p,
+  .about-text-container li {
+    font-size: 1em; /* 16px */
+  }
+
+  /* 4. Lista alinhada à esquerda para melhor leitura */
+  .about-text-container ul {
+    text-align: left;
+    display: inline-block; /* Permite centralizar o bloco da lista */
+  }
+
+  /* 5. Esconde o símbolo de fundo para um layout mais limpo */
+  .about-background-symbol {
+    display: none;
+  }
+}
+
+/* ===============================================
+   == RESPONSIVO: TELAS DE CELULAR (ATÉ 768PX)   ==
+   =============================================== */
+@media (max-width: 48em) {
+  /* 768px */
+
+  .about-section {
+    padding: 4em 1.5em; /* Diminui o padding para telas pequenas */
+  }
+
   .about-container {
     flex-direction: column;
     text-align: center;
+    gap: 2em; /* Reduz o espaço entre foto e texto */
   }
+
+  /* Ajusta o container da imagem */
+  .about-image-container {
+    padding: 0.625em; /* 10px */
+    width: 80%; /* Faz a moldura ocupar 80% da largura */
+    max-width: 18.75em; /* Limita a largura máxima da moldura (300px) */
+    height: auto;
+  }
+
+  /* Ajusta a imagem */
+  .about-image-container img {
+    width: 100%; /* Imagem ocupa 100% da moldura */
+    min-height: initial; /* Remove a altura mínima para se adaptar */
+    height: auto;
+  }
+
+  /* Ajusta as fontes do texto */
+  .about-text-container h2 {
+    font-size: 2em; /* 32px */
+  }
+  .about-text-container .registry {
+    font-size: 1em; /* 16px */
+    margin-bottom: 1.5em;
+  }
+  .about-text-container p,
+  .about-text-container li {
+    font-size: 0.9375em; /* 15px */
+    line-height: 1.6;
+  }
+
+  /* Mantém a lista alinhada à esquerda para melhor leitura */
   .about-text-container ul {
     text-align: left;
-    display: inline-block;
+    display: inline-block; /* Permite que o bloco da lista seja centralizado */
   }
 }

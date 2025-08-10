@@ -292,6 +292,10 @@ body {
   transform: translateY(0);
 }
 
+.mobile-nav-panel {
+  display: none;
+}
+
 /* ======================================================
    == MEDIA QUERIES PARA TELAS DE ALTA RESOLUÇÃO (2K/4K) ==
    ====================================================== */
@@ -509,131 +513,70 @@ body {
 }
 
 /* ======================================================
-   == RESPONSIVIDADE PARA CELULAR (ATÉ 768PX)          ==
+   == RESPONSIVIDADE PARA TABLETS (768px a 1024px)     ==
    ====================================================== */
-@media (max-width: 48em) {
-  /* 768px */
-
-  /* --- Ajustes Gerais da Seção Principal --- */
-  .hero-container {
+@media (min-width: 48em) and (max-width: 64em) {
+  /* --- 1. Cabeçalho na horizontal --- */
+  .main-header {
+    padding: 1.5rem 2rem;
     height: auto;
-    min-height: 100vh; /* Ocupa a altura inteira da tela */
-    padding-bottom: 4em;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: nowrap; /* mantém tudo na mesma linha */
   }
 
-  /* --- Estilos do Menu Hamburger --- */
-  .main-nav.desktop-nav {
-    display: none; /* Esconde o menu de desktop */
-  }
   .main-header.fixed {
-    display: none; /* Esconde o menu fixo de desktop no mobile */
+    display: none;
+  }
+
+  .logo img {
+    width: 15rem;
+    height: auto;
+  }
+
+  /* --- 2. Navegação --- */
+  .desktop-nav {
+    display: none; /* ocultar menu de desktop */
   }
 
   .mobile-nav-toggle {
     display: flex;
     flex-direction: column;
-    gap: 0.3125em; /* 5px */
+    gap: 0.3125em;
     background: none;
     border: none;
     cursor: pointer;
-    z-index: 1001;
+    z-index: 10001;
   }
+
   .hamburger-bar {
-    width: 2em; /* 32px */
-    height: 0.1875em; /* 3px */
+    width: 2em;
+    height: 0.1875em;
     background-color: #333333;
     border-radius: 0.125em;
   }
 
-  /* --- Estilos do Painel de Navegação Móvel --- */
-  .mobile-nav-panel {
-    position: fixed;
-    top: 0;
-    right: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(210, 180, 140, 0.98);
-    backdrop-filter: blur(5px);
-    z-index: 10000;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    transform: translateX(100%);
-    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-  .mobile-nav-panel.is-open {
-    transform: translateX(0);
-  }
-
-  .mobile-nav-close {
-    position: absolute;
-    top: 2em;
-    right: 2em;
-    background: none;
-    border: none;
-    font-size: 2.5em;
-    color: #333;
-    cursor: pointer;
-  }
-
-  .mobile-nav ul {
-    list-style: none;
-    padding: 0;
-    text-align: center;
-  }
-  .mobile-nav li {
-    margin-bottom: 2em;
-  }
-  .mobile-nav a {
-    color: #333;
-    text-decoration: none;
-    font-size: 1.75em; /* Letras grandes para fácil toque */
-    font-weight: 600;
-  }
-
-  /* --- Conteúdo Principal Centralizado --- */
-  .hero-content {
-    align-items: center; /* Centraliza horizontalmente */
-    text-align: center; /* Centraliza o texto */
-    padding-left: 1.5em;
-    padding-right: 1.5em;
-    padding-top: 5em;
-    padding-bottom: 2em;
-  }
-  .hero-content .badge {
-    margin-top: 2em;
-  }
-  .hero-content h1 {
-    font-size: 2.25em; /* 36px */
-  }
-  .hero-content p {
-    font-size: 1.125em; /* 18px */
-  }
-
-  /* --- Cards de Features Empilhados --- */
+  /* --- 3. Features cards na vertical --- */
   .features-section {
-    position: static; /* Remove o posicionamento absoluto */
-    flex-direction: column; /* Empilha os cards */
-    gap: 2.5em; /* Espaço entre os cards */
-    padding: 3em 1.5em;
-    background-color: rgba(210, 180, 140, 0.75);
+    padding: 2rem 2rem;
+    display: flex;
+    flex-direction: column; /* muda para coluna */
+    gap: 2rem; /* espaçamento entre cards */
   }
+
   .feature-card {
     width: 100%;
-    border-right: none; /* Remove a borda direita */
-    padding-bottom: 2.5em;
-    border-bottom: 0.125em solid rgba(0, 0, 0, 0.2); /* Adiciona borda inferior */
+    max-width: 100%; /* ocupa toda a largura */
   }
-  .feature-card:last-child {
-    border-bottom: none; /* Remove a borda do último card */
-    padding-bottom: 0;
-  }
-}
 
-.mobile-nav-toggle,
-.mobile-nav-panel {
-  display: none;
+  .feature-card h3 {
+    font-size: 1.15rem;
+  }
+
+  .feature-card p {
+    font-size: 0.9rem;
+  }
 }
 
 /* ======================================================
