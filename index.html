@@ -45,18 +45,55 @@
         </button>
 
         <div class="mobile-nav-panel">
-          <button class="mobile-nav-close" aria-label="Fechar menu">&times;</button>
-          <nav class="mobile-nav">
-            <ul>
-              <li><a href="#">Início</a></li>
-              <li><a href="#servicos">Serviços</a></li>
-              <li><a href="#sobre-mim">Sobre mim</a></li>
-              <li><a href="#escritorio">O escritório</a></li>
-              <li><a href="#fundador">O fundador</a></li>
-              <li><a href="#depoimentos">Depoimentos</a></li>
-              <li><a href="#contato">Contatos</a></li>
-            </ul>
-          </nav>
+          <!--Butão com defeito que quebrar o site inteiro-->
+          <button class="mobile-nav-close" aria-label="Fechar menu"></button>
+          <!--Butão com defeito que quebrar o site inteiro-->
+            <nav class="mobile-nav">
+              <ul>
+                <li>
+                  <a href="#">
+                    <span>Início</span>
+                    <img src="/caminho/para/icone-inicio.svg" alt="">
+                  </a>
+                </li>
+                <li>
+                  <a href="#servicos">
+                    <span>Serviços</span>
+                    <img src="/caminho/para/icone-servicos.svg" alt="">
+                  </a>
+                </li>
+                <li>
+                  <a href="#sobre-mim">
+                    <span>Sobre mim</span>
+                    <img src="/caminho/para/icone-sobre.svg" alt="">
+                  </a>
+                </li>
+                <li>
+                  <a href="#escritorio">
+                    <span>O escritório</span>
+                    <img src="/caminho/para/icone-escritorio.svg" alt="">
+                  </a>
+                </li>
+                <li>
+                  <a href="#fundador">
+                    <span>O fundador</span>
+                    <img src="/caminho/para/icone-fundador.svg" alt="">
+                  </a>
+                </li>
+                <li>
+                  <a href="#depoimentos">
+                    <span>Depoimentos</span>
+                    <img src="/caminho/para/icone-depoimentos.svg" alt="">
+                  </a>
+                </li>
+                <li>
+                  <a href="#contato">
+                    <span>Contatos</span>
+                    <img src="/caminho/para/icone-contatos.svg" alt="">
+                  </a>
+                </li>
+              </ul>
+            </nav>
         </div>
 
       </header>
@@ -541,53 +578,76 @@
   </body>
 
   <script>
-   const header = document.querySelector(".main-header");
-  let lastScrollY = window.scrollY;
+  
+  // --- LÓGICA UNIFICADA ---
+  // Seleciona os elementos do DOM
+  const header = document.querySelector(".main-header");
+  const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
+  const mobileNavPanel = document.querySelector('.mobile-nav-panel');
+  const mobileNavLinks = document.querySelectorAll('.mobile-nav a');
+  const body = document.body;
+  const elementsToReveal = document.querySelectorAll('.scroll-reveal');
 
+  // 1. LÓGICA DO MENU MÓVEL (HAMBURGER COM FUNÇÃO DE ABRIR E FECHAR)
+  if (mobileNavToggle) {
+    // Esta função ÚNICA abre E fecha o menu
+    const toggleNav = () => {
+      // Alterna a classe que mostra/esconde o painel do menu
+      mobileNavPanel.classList.toggle('is-open');
+      // Alterna a classe no <body> que ativa a animação do "X"
+      body.classList.toggle('mobile-nav-is-open'); 
+    };
+
+    // O mesmo botão hamburger agora serve para as duas ações (abrir e fechar)
+    mobileNavToggle.addEventListener('click', toggleNav);
+
+    // Clicar em um link do menu também fecha o painel
+    mobileNavLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileNavPanel.classList.remove('is-open');
+        body.classList.remove('mobile-nav-is-open');
+      });
+    });
+  }
+
+  // 2. LÓGICA DO CABEÇALHO FIXO (PARA DESKTOP)
   window.addEventListener("scroll", () => {
-    const currentScrollY = window.scrollY;
-
-    if (currentScrollY > 150) {
-      if (!header.classList.contains("fixed")) {
-        header.classList.add("fixed", "show");
+    if (window.innerWidth > 1024) {
+      if (window.scrollY > 150) {
+        if (!header.classList.contains("fixed")) {
+          header.classList.add("fixed", "show");
+        }
+      } else {
+        if (header.classList.contains("fixed")) {
+          header.classList.remove("fixed");
+        }
       }
     } else {
-      if (header.classList.contains("fixed")) {
-        header.classList.remove("show"); // remove visibilidade
-        header.classList.add("hide"); // anima saída
-        setTimeout(() => {
-          header.classList.remove("fixed", "hide");
-        }, 400); // tempo correspondente à transição CSS
-      }
+       header.classList.remove("fixed", "show");
     }
-
-    lastScrollY = currentScrollY;
   });
 
-//Animação Dinâmica com o scroll no decorrer da página
- const elementsToReveal = document.querySelectorAll('.scroll-reveal');
-
+  // 3. LÓGICA DA ANIMAÇÃO DE SCROLL (SCROLL-REVEAL)
   const revealOnScroll = () => {
-    const triggerBottom = window.innerHeight;
-
+    const triggerBottom = window.innerHeight * 0.9;
     elementsToReveal.forEach((el) => {
       const boxTop = el.getBoundingClientRect().top;
-
       if (boxTop < triggerBottom) {
         el.classList.add('visible');
       }
     });
   };
-
   window.addEventListener('scroll', revealOnScroll);
   window.addEventListener('load', revealOnScroll);
-
-  //Ao atualizar volta ao topo
-  window.history.scrollRestoration = "manual";
+  
+  // 4. LÓGICA PARA VOLTAR AO TOPO AO ATUALIZAR
+  if (history.scrollRestoration) {
+    history.scrollRestoration = 'manual';
+  }
   window.addEventListener("load", () => {
     window.scrollTo(0, 0);
   });
-  
+
 </script>
 
 </html>

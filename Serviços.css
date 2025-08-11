@@ -525,6 +525,14 @@ body {
       max-width: 21.875em; /* 350px */
       min-height: 8.75em; /* 140px */
     }
+
+    /* --- CORREÇÃO ADICIONADA --- */
+    /* Reseta o estilo do último card para que ele se comporte como os outros */
+    .service-card:last-child {
+      width: 100%; /* Garante que ele tenha a mesma largura total */
+      max-width: 21.875em; /* Garante que ele tenha a mesma largura máxima */
+      justify-self: auto; /* Reseta o alinhamento do grid (boa prática) */
+    }
   }
 
   /* --- CELULAR NA HORIZONTAL (LANDSCAPE) --- */
