@@ -27,6 +27,7 @@
   gap: 7.5em; /* 120px */
   width: 100%;
   max-width: 75em; /* 1200px */
+  margin-left: 10em;
 }
 
 /* Retângulo à esquerda para a imagem */
@@ -34,11 +35,11 @@
   flex-shrink: 0;
   width: 28.125em; /* 450px */
   height: 40.625em; /* 650px */
-  background-color: #d2b48c;
+  background: linear-gradient(to right, #d2b48c, #ffe0b7);
   border-radius: 0.9375em; /* 15px */
   overflow: hidden;
   padding: 1.25em; /* 20px */
-  box-shadow: 0 0.625em 2.5em rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2); /* Sombra mais forte */
 }
 
 /* Imagem dentro do retângulo */
@@ -105,14 +106,14 @@
   display: inline-flex;
   align-items: center;
   gap: 0.75em; /* 12px */
-  background: linear-gradient(to right, #d2b48c, rgba(210, 180, 140, 0.5));
+  background: linear-gradient(to right, #d2b48c, #ffe0b7);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2); /* Sombra mais forte */
   color: #333333;
   padding: 0.9375em 1.875em; /* 15px 30px */
   border-radius: 0.5em; /* 8px */
   text-decoration: none;
   font-size: 1.125em; /* 18px */
   font-weight: 500;
-  border: 1px solid rgba(0, 0, 0, 0.1);
   transition: transform 0.2s ease;
 }
 
@@ -233,8 +234,8 @@
 }
 
 /* ===============================================
-   == RESPONSIVO: TABLETS (ATÉ 1024PX)           ==
-   =============================================== */
+  == RESPONSIVO: TABLETS (ATÉ 1024PX)           ==
+  =============================================== */
 @media (max-width: 64em) {
   /* 1024px */
 
@@ -243,33 +244,78 @@
     height: auto;
   }
 
+  /* Layout principal vira uma coluna */
   .contact-container {
     flex-direction: column;
-    gap: 2.5em; /* Espaço entre a imagem e o bloco de texto */
-    align-items: center; /* ADICIONADO: Centraliza a imagem e o texto */
+    gap: 3em; /* Aumenta um pouco o espaço entre imagem e texto */
+    align-items: center;
+    margin-right: 8em;
   }
 
+  /* Ajusta a imagem para ser responsiva */
   .contact-image-placeholder {
     width: 80%; /* Ocupa 80% da largura da tela */
-    max-width: 25em; /* Limita a largura máxima em 400px */
-    height: auto; /* Altura se ajusta ao conteúdo */
+    max-width: 28.125em; /* Limita a largura máxima em 450px */
+    height: auto; /* Altura se ajusta para manter a proporção da imagem */
+    aspect-ratio: 3 / 4; /* Garante uma proporção consistente */
   }
 
+  /* Centraliza todo o bloco de informações */
   .contact-info {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
+    width: 100%;
   }
 
   .contact-info h2,
   .contact-info h3 {
-    font-size: 2em; /* Ajusta o tamanho da fonte (32px) */
-    text-wrap: balance; /* Tenta equilibrar as linhas do título */
-    white-space: normal;
+    font-size: 2em; /* 32px */
+    text-wrap: balance;
   }
 
   .social-links {
     margin-bottom: 2.5em;
+  }
+}
+
+/* ===============================================
+  == RESPONSIVO: CELULARES (ATÉ 768PX)          ==
+  =============================================== */
+@media (max-width: 48em) {
+  /* 768px */
+
+  /* Reduz o padding da seção para telas menores */
+  .contact-section {
+    padding: 4em 1.5em;
+  }
+
+  /* Reduz o espaçamento entre os blocos */
+  .contact-container {
+    gap: 2.5em;
+  }
+
+  /* Imagem ocupa mais da tela no celular */
+  .contact-image-placeholder {
+    width: 90%;
+  }
+
+  /* Diminui a fonte dos títulos para melhor legibilidade */
+  .contact-info h2,
+  .contact-info h3 {
+    font-size: 1.75em; /* 28px */
+  }
+
+  .social-links {
+    margin-bottom: 2em; /* Reduz a margem */
+  }
+
+  /* Ajusta o botão para ser mais fácil de tocar */
+  .contact-cta-button {
+    width: 90%;
+    max-width: 25em;
+    padding: 1em 1.5em;
+    justify-content: center; /* Centraliza o conteúdo dentro do botão */
   }
 }

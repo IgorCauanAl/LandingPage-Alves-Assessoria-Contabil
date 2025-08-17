@@ -59,9 +59,14 @@
   top: 6.25em; /* 100px */
   width: 55.875em; /* 750px */
   height: 25em; /* 400px */
-  background-color: rgba(210, 180, 140, 0.9);
+  background: linear-gradient(
+    to right,
+    rgba(210, 180, 140, 0.9),
+    rgba(255, 224, 183, 0.9)
+  );
+
   border-radius: 0.9375em;
-  box-shadow: 0 0.5em 2em rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2); /* Sombra mais forte */
   color: #333;
   z-index: 2; /* Camada 2: Acima da logo de fundo */
   padding: 2.5em;
@@ -125,8 +130,8 @@
     height: 31.25em; /* 500px */
   }
   .founder-bg-logo {
-    right: -5em;
-    bottom: -10em;
+    right: -3em;
+    bottom: -15em;
     width: 80em;
   }
 }
@@ -157,7 +162,7 @@
     height: 34.375em; /* 550px */
   }
   .founder-bg-logo {
-    right: 16em;
+    right: 45em;
     bottom: -14em;
     width: 90em;
   }
@@ -265,14 +270,15 @@
 
   /* 1. Símbolo de fundo posicionado no centro */
   .founder-bg-logo {
-    width: 28.125em; /* 450px */
+    /* MUDANÇA: Logo um pouco maior */
+    width: 35em; /* Aumentado de 28.125em (560px) */
     height: auto;
-    opacity: 0.05; /* Deixa um pouco mais visível */
+    opacity: 0.3; /* Um pouco mais visível */
     top: 50%;
     left: 50%;
-    bottom: auto; /* Reseta o posicionamento antigo */
-    right: auto; /* Reseta o posicionamento antigo */
-    transform: translate(-50%, -50%); /* Técnica para centralização perfeita */
+    bottom: auto;
+    right: auto;
+    transform: translate(-50%, -10%);
   }
 
   /* 2. Conteúdo em coluna única */
@@ -317,12 +323,22 @@
   .founder-content-box {
     width: 100%;
     height: auto;
-    padding: 1.5em; /* Padding uniforme */
+    padding: 2em; /* Padding ajustado */
     text-align: center;
-    background-color: transparent; /* Remove o fundo para não conflitar com a logo */
-    box-shadow: none; /* Remove a sombra */
-  }
 
+    /* MUDANÇA: Fundo de cor com transparência */
+    background: linear-gradient(
+      to right,
+      rgba(210, 180, 140, 0.5),
+      rgba(255, 224, 183, 0.5)
+    ); /* Bege com 70% de opacidade */
+    box-shadow: none;
+
+    /* Toque profissional: Efeito de vidro fosco (Glassmorphism) */
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Borda sutil para o efeito de vidro */
+  }
   .founder-text {
     font-size: 1.0625em; /* Aumenta a fonte para tablets (17px) */
   }
@@ -344,12 +360,12 @@
   .founder-bg-logo {
     width: 28.125em; /* 450px */
     height: auto;
-    opacity: 0.05; /* Deixa um pouco mais visível */
+    opacity: 0.6; /* Deixa um pouco mais visível */
     top: 50%;
     left: 50%;
     bottom: auto; /* Reseta o posicionamento antigo */
     right: auto; /* Reseta o posicionamento antigo */
-    transform: translate(-50%, -50%); /* Técnica para centralização perfeita */
+    transform: translate(-50%, -10%); /* Técnica para centralização perfeita */
   }
 
   /* 2. Conteúdo em coluna única */
@@ -398,6 +414,11 @@
     text-align: center;
     background-color: transparent; /* Remove o fundo para não conflitar com a logo */
     box-shadow: none; /* Remove a sombra */
+    background: linear-gradient(
+      to right,
+      rgba(210, 180, 140, 0.3),
+      rgba(255, 224, 183, 0.3)
+    ); /* Bege com 70% de opacidade */
   }
 
   .founder-text {

@@ -86,7 +86,8 @@ body {
   transform: translateX(-50%) translateY(0);
   width: 60%;
   height: 3.75rem; /* 60px */
-  background: linear-gradient(to right, #d2b48c, rgba(210, 180, 140, 0.9));
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2); /* Sombra mais forte */
+  background: linear-gradient(to right, #d2b48c, #ffe0b7);
   border-radius: 0.9375rem; /* 15px */
   box-shadow: none;
   justify-content: center;
@@ -136,9 +137,10 @@ body {
 /* Fim do menu fixo */
 
 .logo img {
-  width: 21.875rem; /* 350px */
+  width: 25.875rem; /* 350px */
   height: auto;
   position: relative;
+  object-fit: cover;
 }
 
 .main-nav ul {
@@ -176,7 +178,8 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 0.625rem; /* 10px */
-  background: linear-gradient(to right, #d2b48c, rgba(210, 180, 140, 0.5));
+  background: linear-gradient(to right, #d2b48c, #ffe0b7);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2); /* Sombra mais forte */
   padding: 0.5rem 0.9375rem; /* 8px 15px */
   border-radius: 0.9375rem; /* 15px */
   min-height: 3.125rem; /* 50px - Usando min-height para flexibilidade */
@@ -215,7 +218,8 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 0.75rem; /* 12px */
-  background: linear-gradient(to right, #d2b48c, rgba(210, 180, 140, 0.5));
+  background: linear-gradient(to right, #d2b48c, #ffe0b7);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2); /* Sombra mais forte */
   color: #333333;
   padding: 0.9375rem 1.875rem; /* 15px 30px */
   border-radius: 0.5rem; /* 8px */
@@ -244,7 +248,15 @@ body {
   display: flex;
   justify-content: space-around;
   align-items: stretch;
-  background-color: rgba(210, 180, 140, 0.6);
+  /* As cores foram convertidas para RGBA com alpha = 0.9 */
+  background: linear-gradient(
+    to right,
+    rgba(210, 180, 140, 0.6),
+    rgba(255, 224, 183, 0.6)
+  );
+
+  /* MUDANÇA: Sombra agora com 15% de opacidade, mais sutil */
+
   padding: 2.5rem 5rem; /* 40px 80px */
   color: #333333;
 }
@@ -358,8 +370,8 @@ body {
 
   .hero-container {
     /* Expande ainda mais a largura máxima para telas 4K */
-    max-width: 190rem; /* 3040px */
-    min-height: 94rem; /* 1504px */
+    max-width: 240rem; /* 3840px */
+    min-height: 135rem; /* 2160px */
   }
 
   .main-header {

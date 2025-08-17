@@ -40,13 +40,13 @@
 
 /* Bloco de conteúdo com fundo bege */
 .office-content-block {
-  background-color: #d2b48c;
+  background: linear-gradient(to right, #d2b48c, #ffe0b7);
   border-radius: 0.9375em; /* 15px */
   padding: 3.125em; /* 50px */
   display: flex;
   align-items: center;
   gap: 3.125em; /* 50px */
-  box-shadow: 0 0.625em 2.5em rgba(0, 0, 0, 0.08);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2); /* Sombra mais forte */
   min-height: 31.25em; /* 500px */
   width: 100%; /* Alterado de width fixo para 100% */
 }

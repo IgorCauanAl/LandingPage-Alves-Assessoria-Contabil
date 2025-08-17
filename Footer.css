@@ -71,7 +71,8 @@
 }
 .back-to-top {
   display: inline-block;
-  background: linear-gradient(to right, #d2b48c, rgba(210, 180, 140, 0.9));
+  background: linear-gradient(to right, #d2b48c, #ffe0b7);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2); /* Sombra mais forte */
   padding: 0.5em 0.9375em; /* 8px 15px */
   border-radius: 0.3125em; /* 5px */
   text-decoration: none;

@@ -59,10 +59,10 @@
 /* Container da imagem à esquerda */
 .about-image-container {
   flex-shrink: 0;
-  background-color: #d2b48c;
+  background: linear-gradient(to right, #d2b48c, #ffe0b7);
   padding: 0.9375em; /* 15px */
   border-radius: 1.25em; /* 20px */
-  box-shadow: 0 0.625em 2.5em rgba(0, 0, 0, 0.15); /* 0 10px 40px */
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2); /* Sombra mais forte */
 }
 
 .about-image-container img {
