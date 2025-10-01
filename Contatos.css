@@ -294,6 +294,8 @@
   /* Reduz o espaçamento entre os blocos */
   .contact-container {
     gap: 2.5em;
+    justify-content: center;
+    margin-left: 8em;
   }
 
   /* Imagem ocupa mais da tela no celular */
@@ -309,6 +311,13 @@
 
   .social-links {
     margin-bottom: 2em; /* Reduz a margem */
+  }
+
+  .social-links img {
+    width: 1.75em;
+    height: 1.75em;
+    object-fit: contain; /* mantém proporção sem distorcer */
+    display: block;
   }
 
   /* Ajusta o botão para ser mais fácil de tocar */

@@ -14,7 +14,6 @@
   overflow: hidden;
   font-family: "Roboto", sans-serif;
 
-  /* ATUALIZADO: O gradiente foi adicionado sobre a cor de fundo */
   background: 
     /* Camada de cima: O gradiente */ linear-gradient(
       to left,
