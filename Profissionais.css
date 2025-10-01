@@ -287,25 +287,6 @@
 
 /* Telas HD (até 1366px / 85.375em) - Garante que 4 cards caibam bem */
 @media (max-width: 85.375em) {
-  .professionals-gallery {
-    gap: 2em; /* 32px - Reduz o gap para manter 4 cards por linha */
-    max-width: 80em; /* 1280px */
-  }
-  /* O tamanho do professional-card (17em) já está adequado aqui */
-
-  /* Ajuste de padding na seção geral */
-  #team-professionals {
-    padding: 4em 3em; /* 64px 48px */
-  }
-
-  .professional-detail-container {
-    padding: 2em; /* 32px */
-    gap: 2em;
-  }
-}
-
-/* Telas HD (até 1366px / 85.375em) - Garante que 4 cards caibam bem */
-@media (max-width: 85.375em) {
   /* AJUSTE DO FUNDO */
   #team-professionals {
     min-height: 55em; /* Aumenta um pouco a altura mínima */
@@ -327,8 +308,8 @@
 }
 
 /* ======================================================
-   == LAYOUT PADRÃO (FULL HD - 1920PX) - AUMENTO DE CARD ==
-   ====================================================== */
+== LAYOUT PADRÃO (FULL HD - 1920PX) - AUMENTO DE CARD ==
+====================================================== */
 
 /* Otimiza a largura e padding para telas maiores que 1440px */
 @media (min-width: 90.0625em) {
@@ -366,8 +347,8 @@
 }
 
 /* ======================================================
-   == TELAS 2K (2560PX) - AUMENTO DE CARD E FUNDO      ==
-   ====================================================== */
+== TELAS 2K (2560PX) - AUMENTO DE CARD E FUNDO ==
+====================================================== */
 @media (min-width: 120em) {
   /* Acima de 1920px */
 
@@ -375,7 +356,7 @@
   #team-professionals {
     min-height: 70em; /* Aumenta a altura para 1120px */
     /* Para telas 2K/4K, você pode mudar para cover se quiser que o fundo preencha toda a largura.
-        background-size: cover; */
+background-size: cover; */
   }
 
   /* Aumenta a largura máxima do container para usar mais espaço */
@@ -395,8 +376,8 @@
 }
 
 /* ======================================================
-   == TELAS 4K (3840PX) - AUMENTO MÁXIMO              ==
-   ====================================================== */
+== TELAS 4K (3840PX) - AUMENTO MÁXIMO ==
+====================================================== */
 @media (min-width: 160em) {
   /* Acima de 2560px */
 
@@ -427,52 +408,227 @@
   }
 }
 
-/* CELULARES (ATÉ 48EM / 768PX) */
-@media (max-width: 48em) {
+/* ======================================================
+   == RESPONSIVIDADE PARA TABLETS (ATÉ 64EM / 1024PX)  ==
+   ====================================================== */
+@media (max-width: 64em) {
   #team-professionals {
-    padding: 4em 1.5em; /* 64px 24px */
+    padding: 5em 2.5em; /* 80px 40px - Padding horizontal reduzido */
+    /* Remove a centralização 'display: flex' forçada para que os elementos internos
+       (título e galeria) se ajustem em bloco. */
+    display: block;
   }
 
-  #title_team-professionals h2 {
-    font-size: 2em; /* 32px */
+  /* Garante que o título centralize em mobile/tablet */
+  #title_team-professionals {
+    margin-bottom: 2em;
+    width: 100%;
   }
 
-  .name-professional {
-    margin-bottom: 1em;
-  }
-
-  /* Galeria: Acomoda em 1 coluna */
+  /* Galeria: Acomoda em 2 colunas */
   .professionals-gallery {
-    gap: 2em; /* 32px */
+    gap: 2.5em; /* 40px */
+    justify-content: space-around; /* Distribui os 2 cartões */
+    align-items: flex-start;
   }
   .professional-card {
-    width: 100%; /* Cartões em coluna */
-    max-width: 17.625em;
+    /* Ajustado para caber 2 por linha com espaço */
+    width: 45%;
+    max-width: 15.625em; /* 250px */
   }
 
-  /* Detalhe: Ajustes de fonte e padding */
+  .professional-card:hover {
+    transform: none !important;
+    box-shadow: none !important;
+    background: inherit !important;
+  }
+  .professional-card:hover img {
+    transform: scale(1); /* Desativa o zoom da imagem no hover */
+  }
+
+  /* Detalhe: Layout em coluna (Foto em cima, Texto embaixo) */
   .professional-detail-container {
-    padding: 2em 1em; /* 32px 16px */
-    margin-top: 2em;
+    max-width: 95%;
+    margin: 2.5em auto; /* Centraliza e reduz a margem */
+    padding: 2.5em; /* 40px */
   }
-  .btn-back {
-    top: 0.625em; /* 10px */
-    left: 0.625em; /* 10px */
+
+  .professional-detail-container .about-container {
+    flex-direction: column;
+    align-items: center; /* Centraliza a imagem no topo */
+    text-align: center;
+    gap: 2em; /* 32px */
   }
+
   .professional-detail-container .about-image-container {
-    max-width: 20em;
-    height: 25em;
+    width: 60%;
+    max-width: 20em; /* 320px */
+    height: auto;
   }
+  /* Remove o min-height fixo da imagem para que ela se adapte */
+  .professional-detail-container .about-image-container img {
+    min-height: initial;
+    height: auto;
+  }
+
+  .professional-detail-container .detail-content {
+    padding-top: 1.5em; /* 24px */
+  }
+
+  /* Centraliza títulos e força lista para não ficar esticada */
+  .professional-detail-container h2,
+  .professional-detail-container .registry {
+    text-align: center;
+  }
+
+  /* Lista: Garante que os marcadores fiquem alinhados */
+  .professional-detail-container ul {
+    text-align: left;
+    display: inline-block; /* Faz a lista se comportar como um bloco centralizado */
+  }
+
+  /* Ajuste de fontes para tablet */
   .professional-detail-container h2 {
-    font-size: 1.75em; /* 28px */
+    font-size: 2em; /* 32px */
   }
   .professional-detail-container .registry {
-    font-size: 0.9375em; /* 15px */
+    font-size: 1.25em; /* 20px */
     margin-bottom: 1em;
   }
   .professional-detail-container p,
   .professional-detail-container li {
-    font-size: 0.875em; /* 14px */
-    text-align: justify;
+    font-size: 1.125em; /* 18px */
+    text-align: justify; /* Mantém o texto justificado */
+  }
+}
+
+/* ======================================================
+   == RESPONSIVIDADE PARA CELULARES GRANDES (ATÉ 768PX) ==
+   ====================================================== */
+@media (max-width: 48em) {
+  #team-professionals {
+    padding: 3em 1.5em; /* Reduz ainda mais padding */
+    display: block;
+  }
+
+  /* Título */
+  #title_team-professionals h2 {
+    font-size: 1.8em; /* 28px */
+  }
+
+  /* Galeria: 1 card por linha */
+  .professionals-gallery {
+    flex-direction: column;
+    gap: 2em;
+    align-items: center;
+  }
+
+  .professional-card {
+    width: 90%;
+    max-width: 20em; /* 320px */
+    padding: 1em;
+  }
+
+  .professional-card:hover {
+    transform: none !important;
+    box-shadow: none !important;
+    background: inherit !important;
+  }
+
+  .professional-card img {
+    width: 12em;
+    height: 14em;
+  }
+
+  /* Detalhe: layout em coluna, imagem menor */
+  .professional-detail-container {
+    padding: 2em 1.5em;
+    margin-top: 2em;
+  }
+
+  .professional-detail-container .about-container {
+    flex-direction: column;
+    text-align: center;
+    gap: 1.5em;
+  }
+
+  .professional-detail-container .about-image-container {
+    width: 100%;
+    max-width: 15em; /* imagem reduzida */
+    margin: 0 auto;
+  }
+
+  .professional-detail-container .about-image-container img {
+    width: 100%;
+    height: auto;
+    min-height: initial;
+  }
+
+  .professional-detail-container h2 {
+    font-size: 1.8em;
+  }
+  .professional-detail-container .registry {
+    font-size: 1.1em;
+    margin-bottom: 1em;
+  }
+  .professional-detail-container p,
+  .professional-detail-container li {
+    font-size: 1em;
+  }
+
+  /* Botão voltar maior para toque */
+  .btn-back {
+    font-size: 0.9em;
+    padding: 0.5em 0.8em;
+  }
+}
+
+/* ======================================================
+   == RESPONSIVIDADE PARA CELULARES PEQUENOS (ATÉ 480PX) ==
+   ====================================================== */
+@media (max-width: 30em) {
+  #team-professionals {
+    padding: 2em 1em;
+  }
+
+  #title_team-professionals h2 {
+    font-size: 1.5em; /* 24px */
+  }
+
+  .professional-card {
+    width: 100%;
+    max-width: 18em; /* 288px */
+  }
+
+  .professional-card img {
+    width: 10em;
+    height: 12em;
+  }
+
+  .professional-detail-container {
+    padding: 1.5em 1em;
+  }
+
+  .professional-detail-container h2 {
+    font-size: 1.5em;
+  }
+  .professional-detail-container .registry {
+    font-size: 1em;
+  }
+  .professional-detail-container p,
+  .professional-detail-container li {
+    font-size: 0.95em;
+  }
+
+  .professional-card:hover {
+    transform: none !important;
+    box-shadow: none !important;
+    background: inherit !important;
+  }
+
+  /* Ajuste do botão voltar */
+  .btn-back {
+    font-size: 0.8em;
+    padding: 0.4em 0.6em;
   }
 }
