@@ -14,6 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // --- FUNÇÕES DE ANIMAÇÃO ---
 
   // Função para mostrar a Galeria (Voltar)
+  // Esta função já está correta para o crossfade (inicia as duas animações ao mesmo tempo)
   function showGallery() {
     // 1. Inicia a animação de SAÍDA dos detalhes (usando a classe de saída)
     detailContainer.classList.add("exit-fwd-center");
@@ -22,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // 2. Torna a galeria visível e inicia a animação de ENTRADA
     gallery.style.display = "flex";
     gallery.classList.add("enter-fwd-center");
-    gallery.classList.remove("exit-fwd-center"); // (Assumindo que você criou uma animação de entrada para a galeria)
+    gallery.classList.remove("exit-fwd-center");
 
     // Oculta/mostra o título
     const titleGallery = document.querySelector("#title_team-professionals");
@@ -38,9 +39,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }, ANIMATION_DURATION);
   }
 
-  // Função para mostrar os Detalhes do Profissional
+  // Função para mostrar os Detalhes do Profissional (MODIFICADA)
   function showDetails(professionalKey) {
-    // ... (Mapeamento de IDs, clonagem de conteúdo - seu código aqui está perfeito) ...
+    // ... (Mapeamento de IDs - seu código aqui está perfeito) ...
     let descriptionId;
     if (professionalKey === "fabio") {
       descriptionId = "description-fabio";
@@ -65,25 +66,24 @@ document.addEventListener("DOMContentLoaded", () => {
       titleGallery.style.display = "none";
     }
 
-    // 1. Inicia a animação de SAÍDA da galeria (se houver)
-    gallery.classList.add("exit-fwd-center"); // Assumindo uma classe de saída
+    // 1. Inicia a animação de SAÍDA da galeria
+    gallery.classList.add("exit-fwd-center");
     gallery.classList.remove("enter-fwd-center");
 
     // 2. Limpa o conteúdo e injeta o bloco HTML CLONADO
     detailContent.innerHTML = "";
     detailContent.appendChild(descriptionElement.cloneNode(true));
 
-    // 3. Oculta a galeria e exibe os detalhes APÓS a animação de SAÍDA
+    // 3. Exibe os detalhes e inicia a animação de ENTRADA (IMEDIATAMENTE)
+    // Isso cria o "crossfade"
+    detailContainer.style.display = "flex";
+    detailContainer.classList.add("enter-fwd-center");
+    detailContainer.classList.remove("exit-fwd-center");
+
+    // 4. Oculta a galeria APÓS a animação de SAÍDA
     setTimeout(() => {
       gallery.style.display = "none";
-      gallery.classList.remove("exit-fwd-center"); // Limpa a classe de saída da galeria
-
-      // Prepara a entrada dos detalhes
-      detailContainer.style.display = "flex";
-
-      // Inicia a animação de ENTRADA dos detalhes
-      detailContainer.classList.add("enter-fwd-center");
-      detailContainer.classList.remove("exit-fwd-center");
+      gallery.classList.remove("exit-fwd-center"); // Limpa a classe de saída
     }, ANIMATION_DURATION);
   }
 

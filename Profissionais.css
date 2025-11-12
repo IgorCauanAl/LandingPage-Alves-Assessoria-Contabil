@@ -4,28 +4,55 @@
 
 /* 1. Estilos da Galeria e Título */
 
-/* Entrada animada */
-.enter-fwd-center {
-  animation: slide-in-fwd-center 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-}
+/* === MODIFICAÇÃO INICIADA: CROSSFADE === */
 
-/* Saída animada */
-.exit-fwd-center {
-  animation: slide-out-fwd-center 0.5s cubic-bezier(0.55, 0.085, 0.68, 0.53)
-    both;
-}
-
-/* Crie a animação de saída (inversa da entrada) */
-@keyframes slide-out-fwd-center {
+/* Nossas novas animações de crossfade */
+@keyframes crossfade-in {
   0% {
-    transform: translateZ(0);
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes crossfade-out {
+  0% {
     opacity: 1;
   }
   100% {
-    transform: translateZ(-1400px);
     opacity: 0;
   }
 }
+
+/* Entrada animada (AGORA COM FADE) */
+.enter-fwd-center {
+  animation: crossfade-in 0.5s ease-in both;
+}
+
+/* Saída animada (AGORA COM FADE) */
+.exit-fwd-center {
+  animation: crossfade-out 0.5s ease-out both;
+  position: absolute; 
+  
+  /* 2. Fixa no topo (respeitando a margem original) */
+  top: 0;
+  margin-top: 3.75em; /* Replica sua margem original */
+
+  /* 3. Força a centralização horizontal */
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  
+  /* 4. Garante que ele mantenha a largura correta */
+  /* (O max-width: 87.5em do seletor principal vai limitar isso) */
+  width: 100%;
+}
+
+/* Animação de slide-out-fwd-center removida pois não é mais usada */
+
+/* === MODIFICAÇÃO CONCLUÍDA === */
 
 .professional-card {
   opacity: 0;
@@ -50,6 +77,22 @@
 .professional-card:hover img {
   transform: scale(1.1);
 }
+
+.professional-card .cta-view-perfil {
+  display: inline-block; /* Para permitir margin */
+  margin-top: 15px;
+  color: #333333; /* Sua cor principal */
+  font-weight: 700;
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.3s ease;
+}
+
+/* Efeito hover para o TEXTO */
+.professional-card:hover .cta-view-perfil {
+  border-bottom-color: #333333;
+}
+
 
 #team-professionals {
   min-height: 50em; /* 1080px */
@@ -76,6 +119,7 @@
 #title_team-professionals {
   margin-bottom: 2.5em; /* 40px */
 }
+
 
 #title_team-professionals h2 {
   font-size: 2.625em; /* 42px - Tamanho do título */
@@ -137,8 +181,9 @@
 
 /* Container Principal para o Detalhe */
 .professional-detail-container {
+  display:none;
   max-width: 87.5em; /* 1400px - Largura máxima */
-  margin: 3.75em auto 0; /* 60px auto 0 - Espaço acima */
+  margin: 3.75em auto 0; /* 60px auto 0 - Espaço acima E CENTRALIZAÇÃO */
   padding: 3.75em; /* 60px */
   border-radius: 1.25em; /* 20px */
   background: linear-gradient(to right, #d2b48c, #ffe0b7);
@@ -260,6 +305,10 @@
   top: 0.1875em; /* 3px */
   color: #966c30;
   font-weight: bold;
+}
+
+#team-professionals .main-container{
+  position: relative;
 }
 
 /* Notebooks e Telas Menores (até 1440px / 90em) - AJUSTE LEVE */

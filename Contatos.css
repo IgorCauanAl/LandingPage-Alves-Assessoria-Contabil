@@ -48,6 +48,7 @@
   height: 100%;
   object-fit: cover;
   border-radius: 0.5em; /* 8px */
+  transition: opacity 0.5s ease-in-out;
 }
 
 /* Bloco de informações de contato à direita */
@@ -115,6 +116,8 @@
   font-size: 1.125em; /* 18px */
   font-weight: 500;
   transition: transform 0.2s ease;
+  width:16em;
+
 }
 
 .contact-cta-button:hover {
@@ -122,7 +125,7 @@
 }
 
 .contact-cta-button img {
-  height: 1.5em; /* 24px */
+  height: 1.5em;
 }
 /* ======================================================
    == RESPONSIVIDADE PARA TODAS AS TELAS (EM)          ==

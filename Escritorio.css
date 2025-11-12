@@ -1,6 +1,22 @@
 /* ======================================================
-  == SEÇÃO O ESCRITÓRIO (REFATORADO COM 'EM')          ==
+  == SEÇÃO O ESCRITÓRIO (Modernizada)                  ==
   ====================================================== */
+
+:root {
+ 
+  --gradient-office-bg: linear-gradient(
+    to right,
+    rgba(210, 180, 140, 0.9),
+    rgba(255, 224, 183, 0.9)
+  );
+
+  /* Gradiente de overlay para o fundo da seção */
+  --gradient-office-overlay: linear-gradient(
+    to bottom,
+    rgba(210, 180, 140, 0.6),
+    rgba(0, 0, 0, 1)
+  );
+}
 
 /* Container principal da seção */
 .office-section {
@@ -12,15 +28,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(
-      to bottom,
-      rgba(210, 180, 140, 0.7),
-      rgba(0, 0, 0, 1)
-    ),
+  background: var(--gradient-office-overlay),
     url("/Fotos/Escritorio/pexels-ercan-senkaya-425995607-15195276.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  background-attachment: fixed; /* Efeito parallax moderno */
 }
 
 /* Container que alinha todo o conteúdo no centro */
@@ -32,49 +45,59 @@
 
 /* Título "O Escritório" */
 .office-title {
-  font-size: 2.625em; /* 42px */
+  font-size: 2.625em;
   font-weight: 700;
   color: #333333;
   margin-bottom: 1.5625em; /* 25px */
 }
 
-/* Bloco de conteúdo com fundo bege */
+/* Bloco de conteúdo com fundo (Modernizado) */
 .office-content-block {
-  background: linear-gradient(to right, #d2b48c, #ffe0b7);
+  /* EFEITO MODERNO: "Vidro Fosco" */
+  background: var(--gradient-office-bg);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px); /* Suporte Safari */
+
   border-radius: 0.9375em; /* 15px */
   padding: 3.125em; /* 50px */
   display: flex;
   align-items: center;
   gap: 3.125em; /* 50px */
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2); /* Sombra mais forte */
+  box-shadow: var(--shadow-strong);
   min-height: 31.25em; /* 500px */
-  width: 100%; /* Alterado de width fixo para 100% */
+  width: 100%;
+  flex-wrap: wrap; /* Permite que os itens quebrem antes do breakpoint principal */
 }
 
-/* Coluna do texto à esquerda */
+/* Coluna do texto à esquerda (Layout Flexível Moderno) */
 .office-text {
-  flex: 1;
-  max-width: 35%;
+  /* flex: [grow] [shrink] [basis] */
+  flex: 1 1 35%;
+  min-width: 20em; /* Força a quebra de linha em telas menores */
 }
 
 .office-text p {
-  font-size: 1.125em; /* 18px */
+  /* TIPOGRAFIA FLUIDA: 
+     min: 1em, ideal: 0.5vw, max: 1.125em */
+  font-size: clamp(1em, 0.5vw + 0.8em, 1.125em);
   line-height: 1.7;
-  color: #333333;
+  color: var(--color-text);
 }
 
 /* Coluna das imagens à direita */
 .office-images {
   position: relative;
-  flex: 1.5;
-  display: grid; /* Usando grid para um alinhamento mais robusto */
-  grid-template-columns: 1fr 1fr; /* Duas colunas de tamanho igual */
+  /* flex: [grow] [shrink] [basis] */
+  flex: 1.5 1 55%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: 1.5625em; /* 25px */
   align-items: center;
+  min-width: 25em; /* Garante espaço mínimo */
 }
 
 .office-images img {
-  width: 100%; /* Imagens ocupam 100% da coluna do grid */
+  width: 100%;
   height: 18.75em; /* 300px */
   border-radius: 0.75em; /* 12px */
   box-shadow: 0 0.5em 1.5625em rgba(0, 0, 0, 0.15);
@@ -91,11 +114,9 @@
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background-color: rgba(255, 255, 255, 0.6);
-  color: #333333;
+  color: var(--color-text);
   width: 2.5em; /* 40px */
   height: 2.5em; /* 40px */
-  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -107,37 +128,43 @@
   user-select: none;
 }
 
-.carousel-arrow:hover {
-  background-color: #ffffff;
+.carousel-arrow img {
+  width: 1.25em; /* 20px (baseado no font-size de 16px) */
+  height: 1.25em; /* 20px */
 }
 
+.carousel-arrow:hover {
+ 
+}
+
+/* CORREÇÃO DE POSICIONAMENTO: 
+   Coloca as setas nas bordas internas do container de imagens.
+*/
 .left-arrow {
-  left: 10em; /* 10px da borda esquerda */
+  left: -2em; /* 10px da borda esquerda interna */
 }
 
 .right-arrow {
-  right: 0.625em; /* 10px da borda direita */
+  right: -2em; /* 10px da borda direita interna */
 }
 
 /* ======================================================
-   == RESPONSIVIDADE PARA TODAS AS TELAS (EM)          ==
+   == RESPONSIVIDADE (Otimizada)                       ==
    ====================================================== */
 
 /* Telas 4K (a partir de 2560px) */
 @media (min-width: 160em) {
   .office-container {
     max-width: 112.5em; /* 1800px */
-    min-height: 94rem; /* 1504px */
-    margin-top: 20em;
   }
   .office-title {
-    font-size: 4em; /* AUMENTADO: 64px */
+    font-size: 4em; /* 64px */
   }
   .office-text p {
-    font-size: 1.5em; /* AUMENTADO: 24px */
+    font-size: 1.5em; /* 24px */
   }
   .office-images img {
-    height: 28.125em; /* AUMENTADO: 450px */
+    height: 28.125em; /* 450px */
   }
   .office-content-block {
     padding: 4.375em; /* 70px */
@@ -149,69 +176,25 @@
 @media (min-width: 120em) {
   .office-container {
     max-width: 100em; /* 1600px */
-    min-height: 75rem; /* 1200px */
   }
   .office-title {
-    font-size: 3.25em; /* AUMENTADO: 52px */
+    font-size: 3.25em; /* 52px (Controlado pelo clamp()) */
   }
   .office-text p {
-    font-size: 1.375em; /* AUMENTADO: 22px */
+    font-size: 1.375em; /* 22px */
   }
   .office-images img {
-    height: 25em; /* AUMENTADO: 400px */
+    height: 25em; /* 400px */
   }
 }
 
-/* Telas de Desktop Menores (até 1600px) */
-@media (max-width: 100em) {
-  .office-section {
-    padding: 5em 2.5em; /* 80px 40px */
-    min-height: 59.375em; /* 950px */
-  }
-  .office-content-block {
-    padding: 2.5em; /* 40px */
-    gap: 2.5em; /* 40px */
-  }
-  .office-text {
-    max-width: 40%;
-  }
-  .office-text p {
-    font-size: 1.0625em; /* 17px */
-  }
-  .office-images img {
-    height: 17.5em; /* 280px */
-  }
-}
-
-/* Telas de Laptop (até 1440px) */
-@media (max-width: 90em) {
-  .office-text p {
-    font-size: 1em; /* 16px */
-  }
-  .office-content-block {
-    padding: 2.5em 1.875em; /* 40px 30px */
-    gap: 1.875em; /* 30px */
-    min-height: 25em; /* 400px */
-  }
-  .office-images img {
-    height: 12.5em; /* 200px */
-  }
-}
-
-/* Telas de Laptop Menores (até 1280px) */
-@media (max-width: 80em) {
-  .office-section {
-    padding: 5em 1.875em; /* 80px 30px */
-  }
-  .office-content-block {
-    align-items: stretch; /* Garante que colunas tenham a mesma altura */
-  }
-  .office-text {
-    max-width: 45%;
-    display: flex;
-    align-items: center; /* Centraliza o texto verticalmente */
-  }
-}
+/* REMOVIDO: Media queries para 100em, 90em, e 80em.
+   A combinação de Flexbox (com flex-basis e min-width) 
+   e a tipografia fluida (clamp()) agora lida com esses 
+   tamanhos intermediários de forma mais elegante, 
+   permitindo que o layout "quebre" naturalmente
+   quando o espaço for insuficiente.
+*/
 
 /* ===============================================
    == RESPONSIVO: TABLETS (ATÉ 1024PX)           ==
@@ -221,13 +204,13 @@
 
   .office-section {
     padding: 3.75em 1.5em; /* 60px 24px */
-    min-height: 0;
-    height: auto;
+    min-height: auto; /* Altura flexível */
+    background-attachment: scroll; /* Remove o parallax em telas menores */
   }
 
   .office-title {
     text-align: center;
-    font-size: 2.25em; /* 36px */
+    font-size: 2.25em; /* 36px (Controlado pelo clamp()) */
   }
 
   /* Organiza o conteúdo em coluna única */
@@ -235,11 +218,16 @@
     flex-direction: column;
     padding: 2.5em; /* 40px */
     gap: 2.5em; /* 40px */
+    /* Remove o efeito para melhor performance em tablets */
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    background: var(--gradient-primary); /* Fundo opaco */
   }
 
   .office-text {
     max-width: 100%;
     text-align: center;
+    flex-basis: auto; /* Reseta o basis */
   }
   .office-text p {
     font-size: 1.0625em; /* 17px */
@@ -248,7 +236,7 @@
   /* --- CARROSSEL DE IMAGENS COM ROLAGEM E "ESPIADA" --- */
   .office-images {
     width: 100%;
-    display: flex;
+    display: flex; /* Muda de Grid para Flex */
     gap: 1.25em; /* Espaço entre as imagens */
     overflow-x: auto; /* Habilita a rolagem horizontal */
     scroll-snap-type: x mandatory;
@@ -256,6 +244,7 @@
     border-radius: 0.75em;
     padding: 0 1.5em;
     scroll-padding: 0 1.5em;
+    flex-basis: auto; /* Reseta o basis */
   }
 
   /* Esconde a barra de rolagem */
@@ -274,6 +263,7 @@
     height: 18.75em; /* 300px - Uma altura maior para tablets */
   }
 
+  /* Esconde as setas no tablet, pois a rolagem é por swipe */
   .office-images .carousel-arrow {
     display: none;
   }
@@ -285,62 +275,29 @@
 @media (max-width: 48em) {
   /* 768px - Ponto de quebra para celulares */
 
-  /* Ajusta o espaçamento da seção para telas pequenas */
   .office-section {
-    padding: 3.75em 1.5em;
-    min-height: 0;
-    height: auto;
+    padding: 3.75em 1em; /* Reduz padding lateral */
   }
 
-  .office-title {
-    text-align: center;
-  }
-
-  /* Organiza o conteúdo em uma coluna */
   .office-content-block {
-    flex-direction: column;
     padding: 1.875em;
     padding-bottom: 3.125em;
     gap: 1.875em;
   }
 
-  .office-text {
-    max-width: 100%;
-    text-align: center;
-  }
-
   /* --- CARROSSEL DE IMAGENS COM EFEITO "ESPIADA" --- */
   .office-images {
-    width: 100%;
-    display: flex;
     gap: 1em;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-    border-radius: 0.75em;
-    padding: 0 1.25em;
-    scroll-padding: 0 1.25em;
+    padding: 0 1em; /* Reduz padding do carrossel */
+    scroll-padding: 0 1em;
   }
 
-  /* Esconde a barra de rolagem */
-  .office-images::-webkit-scrollbar {
-    display: none;
-  }
-  .office-images {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-  }
-
-  /* Cada imagem ocupa 90% para a próxima "espiar" */
   .office-images img {
+    /* Cada imagem ocupa 90% para a próxima "espiar" */
     flex: 0 0 90%;
     scroll-snap-align: center; /* Centraliza a imagem ativa */
-    height: 15.625em;
+    height: 15.625em; /* Altura menor para celular */
   }
 
-  /* Esconde as setas no celular */
-  .carousel-arrow.left-arrow-office,
-  .carousel-arrow.right-arrow-office {
-    display: none;
-  }
+  /* (Setas já estão escondidas pela media query de 64em) */
 }

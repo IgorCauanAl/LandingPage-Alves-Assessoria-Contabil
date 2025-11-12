@@ -190,6 +190,7 @@
               alt="Ícone Escrituração"
             />
             <span class="scroll-reveal">Escrituração</span>
+            <span class="indicator-details">Ver detalhes</span>
           </div>
           <div class="card-back">
             <ul>
@@ -207,6 +208,7 @@
               alt="Ícone Contabilidade Financeira"
             />
             <span class="scroll-reveal">Contabilidade Financeira</span>
+            <span class="indicator-details">Ver detalhes</span>
           </div>
           <div class="card-back">
             <ul>
@@ -224,6 +226,7 @@
               alt="Ícone Imposto de Renda"
             />
             <span class="scroll-reveal">Preparação de Imposto de Renda</span>
+            <span class="indicator-details">Ver detalhes</span>
           </div>
           <div class="card-back">
             <ul>
@@ -243,6 +246,7 @@
             <span class="scroll-reveal"
               >Planejamento Tributário Para Empresas</span
             >
+            <span class="indicator-details">Ver detalhes</span>
           </div>
           <div class="card-back">
             <ul>
@@ -262,6 +266,7 @@
             <span class="scroll-reveal"
               >Planejamento Tributário Pessoas Físicas</span
             >
+            <span class="indicator-details">Ver detalhes</span>
           </div>
           <div class="card-back">
             <ul>
@@ -279,6 +284,7 @@
               alt="Ícone Consultoria de RH"
             />
             <span class="scroll-reveal">Consultoria de RH</span>
+            <span class="indicator-details">Ver detalhes</span>
           </div>
           <div class="card-back">
             <ul>
@@ -296,6 +302,7 @@
               alt="Ícone Assessoria Tributária"
             />
             <span class="scroll-reveal">Assessoria Tributária</span>
+            <span class="indicator-details">Ver detalhes</span>
           </div>
           <div class="card-back">
             <ul>
@@ -326,6 +333,11 @@
             />
             <h3 class="scroll-reveal">Fábio Alessandro</h3>
             <p class="scroll-reveal">Contador Responsável</p>
+
+            <span class="cta-view-perfil">
+              Ver perfil completo 
+            </span>
+
           </div>
 
           <div
@@ -339,18 +351,13 @@
             />
             <h3 class="scroll-reveal">Manoel</h3>
             <p class="scroll-reveal">Contador</p>
+
+            <span class="cta-view-perfil">
+              Ver perfil completo 
+            </span>
           </div>
 
-          <div class="professional-card" data-professional="miria">
-            <img
-              class="scroll-reveal"
-              src="Fotos/Painel_Dos_Profissionais/Fotos/Miria.png"
-              alt="Foto do Profissional 3"
-            />
-            <h3 class="scroll-reveal">Miria</h3>
-            <p class="scroll-reveal">Contadora</p>
-          </div>
-
+          
           <div
             class="scroll-reveal professional-card"
             data-professional="claudia"
@@ -362,11 +369,15 @@
             />
             <h3 class="scroll-reveal">Ana Claúdia</h3>
             <p class="scroll-reveal">Gestora de RH</p>
+
+            <span class="cta-view-perfil">
+              Ver perfil completo 
+            </span>
           </div>
         </div>
 
         <!--Seção da descrição do profissional após o click na foto-->
-        <div class="professional-detail-container" style="display: none">
+        <div class="professional-detail-container">
           <button class="scroll-reveal btn-back">&larr; Voltar</button>
 
           <div class="detail-content"></div>
@@ -445,45 +456,42 @@
             <div class="about-text-container">
               <h2>Manoel</h2>
               <p>
-                Com mais de 34 anos de experiência... [Resto do texto de Fábio]
+                Com 25 anos de experiência consolidada, Emanoel é um profissional
+                multifacetado e estratégico, atuando com excelência como Gestor
+                Administrativo e Contador. Ao longo de sua trajetória, Emanoel
+                desenvolveu uma visão holística em diversos setores empresariais,
+                combinando a precisão técnica da contabilidade com a eficiência
+                da gestão administrativa, sempre focado em otimizar resultados e
+                garantir a saúde organizacional.
               </p>
+
+              <p class="scroll-reveal">Emanoel é especializado em:</p>
+
               <ul>
-                <li>Classificação e escrituração contábil...</li>
+                <li class="scroll-reveal">
+                  Gestão estratégica de processos administrativos e financeiros,
+                  implementando melhorias contínuas para aumentar a eficiência
+                  operacional e reduzir custos.
+                </li>
+                <li class="scroll-reveal">
+                  Planejamento orçamentário e elaboração de relatórios
+                  gerenciais, fornecendo análises precisas e insights valiosos
+                  que suportam a tomada de decisão da alta direção.
+                </li>
+                <li class="scroll-reveal">
+                  Supervisão da escrituração contábil e fiscal, assegurando o
+                  cumprimento rigoroso de todas as obrigações legais e normas
+                  vigentes, garantindo a conformidade (compliance) total da
+                  empresa.
+                </li>
+
+                
               </ul>
-              <p>
-                Fábio Alessandro é reconhecido por sua capacidade... [Resto do
-                texto]
-              </p>
             </div>
           </div>
         </div>
 
-        <!--Miria-->
-        <div id="description-professional3" class="description-item">
-          <div class="about-container">
-            <div class="about-image-container">
-              <img
-                src="/Fotos/Painel_Dos_Profissionais/Fotos/Miria.png"
-                alt="Photo of Miria"
-              />
-            </div>
-
-            <div class="about-text-container">
-              <h2>Miria</h2>
-              <p>
-                Com mais de 34 anos de experiência... [Resto do texto de Fábio]
-              </p>
-              <ul>
-                <li>Classificação e escrituração contábil...</li>
-              </ul>
-              <p>
-                Fábio Alessandro é reconhecido por sua capacidade... [Resto do
-                texto]
-              </p>
-            </div>
-          </div>
-        </div>
-
+    
         <!--Ana Claudia-->
         <div id="description-professional4" class="description-item">
           <div class="about-container">
@@ -518,7 +526,7 @@
                 </li>
                 <li class="scroll-reveal">
                   Condução de dinâmicas motivacionais, aplicação de pesquisas de
-                  clima organizacional** e promoção de engajamento.
+                  clima organizacional e promoção de engajamento.
                 </li>
                 <li class="scroll-reveal">
                   Consultoria em Gestão de Riscos Psicossociais (NR-1, Portaria
@@ -535,44 +543,125 @@
     </section>
 
     <!--Escritorio-->
-    <section id="escritorio" class="office-section">
-      <div class="office-container">
-        <h2 class="office-title" class="scroll-reveal">O Escritório</h2>
+   <section id="escritorio" class="office-section">
+  <div class="office-container">
+    <h2 class="office-title" class="scroll-reveal">O Escritório</h2>
 
-        <div class="office-content-block">
-          <div class="office-text">
-            <p class="scroll-reveal">
-              Bem-vindo(a) ao Alves Assessoria Contábil, onde a excelência em
-              gestão financeira e contábil se apoia na tradição e no
-              profissionalismo. O escritório do diretor está localizado no
-              coração de Salvador, proporcionando um ponto de referência sólido
-              e acessível para nossos clientes. Nossa equipe atua remotamente,
-              garantindo flexibilidade e rapidez, sem comprometer o
-              comprometimento e a qualidade dos serviços prestados. Essa
-              organização permite oferecer soluções contábeis personalizadas,
-              alinhadas às demandas específicas de cada cliente, com precisão e
-              transparência.
-            </p>
-          </div>
-          <div class="office-images">
-            <div class="carousel-arrow left-arrow">&lt;</div>
+    <div class="office-content-block">
+      <div class="office-text">
+        <p class="scroll-reveal">
+          Bem-vindo(a) ao Alves Assessoria Contábil, onde a excelência em gestão
+          financeira e contábil se apoia na tradição e no profissionalismo. O
+          escritório do diretor está localizado no coração de Salvador,
+          proporcionando um ponto de referência sólido e acessível para nossos
+          clientes. Nossa equipe atua remotamente, garantindo flexibilidade e
+          rapidez, sem comprometer o comprometimento e a qualidade dos serviços
+          prestados. Essa organização permite oferecer soluções contábeis
+          personalizadas, alinhadas às demandas específicas de cada cliente, com
+          precisão e transparência.
+        </p>
+      </div>
 
-            <img
-              class="scroll-reveal"
-              src="/Fotos/Escritorio/WhatsApp Image 2024-09-09 at 18.17.46.jpeg"
-              alt="Foto do ambiente de trabalho do escritório de contabilidade"
-            />
-            <img
-              class="scroll-reveal"
-              src="/Fotos/Escritorio/WhatsApp Image 2024-09-09 at 19.31.49.jpeg"
-              alt="Foto da mesa de trabalho do contador"
-            />
+      <div class="office-images">
+        <div class="carousel-arrow left-arrow" id="prev-slide">
+          <img
+            src="arrow-left.svg"
+            alt="Anterior"
+          />
+        </div>
 
-            <div class="carousel-arrow right-arrow">&gt;</div>
-          </div>
+        <img
+          class="scroll-reveal"
+          src="/Fotos/Escritorio/1.webp"
+          alt="Foto do ambiente de trabalho do escritório de contabilidade"
+        />
+
+         <img
+          class="scroll-reveal"
+          src="/Fotos/Escritorio/2.webp"
+          alt="Foto do ambiente de trabalho do escritório de contabilidade"
+        />
+
+         <img
+          class="scroll-reveal"
+          src="/Fotos/Escritorio/3.webp"
+          alt="Foto do ambiente de trabalho do escritório de contabilidade"
+        />
+
+         <img
+          class="scroll-reveal"
+          src="/Fotos/Escritorio/4.webp"
+          alt="Foto do ambiente de trabalho do escritório de contabilidade"
+        />
+
+         <img
+          class="scroll-reveal"
+          src="/Fotos/Escritorio/5.webp"
+          alt="Foto do ambiente de trabalho do escritório de contabilidade"
+        />
+
+
+         <img
+          class="scroll-reveal"
+          src="/Fotos/Escritorio/6.webp"
+          alt="Foto do ambiente de trabalho do escritório de contabilidade"
+        />
+
+         <img
+          class="scroll-reveal"
+          src="/Fotos/Escritorio/7.webp"
+          alt="Foto do ambiente de trabalho do escritório de contabilidade"
+        />
+        
+
+         <img
+          class="scroll-reveal"
+          src="/Fotos/Escritorio/8.webp"
+          alt="Foto do ambiente de trabalho do escritório de contabilidade"
+        />
+
+
+         <img
+          class="scroll-reveal"
+          src="/Fotos/Escritorio/9.webp"
+          alt="Foto do ambiente de trabalho do escritório de contabilidade"
+        />
+
+
+
+         <img
+          class="scroll-reveal"
+          src="/Fotos/Escritorio/10.webp"
+          alt="Foto do ambiente de trabalho do escritório de contabilidade"
+        />
+
+
+         <img
+          class="scroll-reveal"
+          src="/Fotos/Escritorio/11.webp"
+          alt="Foto do ambiente de trabalho do escritório de contabilidade"
+        />
+
+
+        <img
+          class="scroll-reveal"
+          src="/Fotos/Escritorio/12.webp"
+          alt="Foto do ambiente de trabalho do escritório de contabilidade"
+        />
+        
+
+         
+
+        <div class="carousel-arrow right-arrow" id="next-slide">
+          <img
+            src="arrow-right.svg"
+            alt="Próximo"
+          />
         </div>
       </div>
-    </section>
+      </div>
+  </div>
+</section>
 
     <!--O fundador-->
     <section class="founder-section" id="fundador">
@@ -618,7 +707,12 @@
         </div>
 
         <div class="testimonials-carousel-wrapper">
-          <div class="carousel-arrow left-arrow">&lt;</div>
+         <div class="carousel-arrow left-arrow" id="prev-slide">
+          <img
+            src="arrow-left.svg"
+            alt="Anterior"
+          />
+        </div>
           <div class="testimonials-carousel">
             <div class="testimonial-card">
               <img
@@ -635,7 +729,12 @@
               />
             </div>
           </div>
-          <div class="carousel-arrow right-arrow">&gt;</div>
+          <div class="carousel-arrow right-arrow" id="prev-slide">
+          <img
+            src="arrow-right.svg"
+            alt="Anterior"
+          />
+        </div>
         </div>
 
         <a href="#" class="testimonials-cta-button">
@@ -653,11 +752,14 @@
     <section id="contato" class="contact-section">
       <div class="contact-container">
         <div class="contact-image-placeholder">
-          <img
-            src="/Fotos/Contatos/IMG-20250806-WA0062.jpg"
-            class="scroll-reveal"
-            alt="Logo Alves Assesoria Contabil"
-          />
+        <img
+          id="contact-carousel-image"
+          src="/Fotos/Contatos/contatos3.webp"
+          class="scroll-reveal"
+          alt="Logo Alves Assesoria Contabil"
+        />
+
+      
         </div>
 
         <div class="contact-info">
@@ -747,7 +849,7 @@
               <a href="mailto:f_a_alves@hotmail.com">f_a_alves@hotmail.com</a>
             </div>
           </div>
-          <a href="#" class="back-to-top">Voltar ao topo ↑</a>
+          <a href="#" class="back-to-top">Voltar ao topo</a>
         </div>
 
         <div class="footer-column">
@@ -808,7 +910,7 @@
           <h4>Endereço</h4>
           <div class="footer-contact-item">
             <img
-              src="/Fotos/Contatos/telefone.png"
+              src="/Fotos/Contatos/address.svg"
               alt="Ícone de localização"
             />
             <span
@@ -906,4 +1008,6 @@
     });
   </script>
   <script src="painel-profissionais.js"></script>
+  <script src="escritorio.js"></script>
+  <script src="contatos.js"></script>
 </html>

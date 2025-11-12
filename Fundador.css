@@ -23,6 +23,11 @@
     /* Camada de baixo: A cor de fundo original */ #e6ddcf;
 }
 
+.founder-title h2{
+  font-size:2.625em;
+
+}
+
 .founder-bg-logo {
   position: absolute;
   right: -8em;
@@ -46,7 +51,7 @@
 .founder-title {
   font-size: 2.625em; /* 42px */
   font-weight: 700;
-  color: #333;
+  color: #333333;
   position: absolute;
   top: 0;
   z-index: 4; /* Acima de tudo */
@@ -66,7 +71,7 @@
 
   border-radius: 0.9375em;
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2); /* Sombra mais forte */
-  color: #333;
+  color: #333333;
   z-index: 2; /* Camada 2: Acima da logo de fundo */
   padding: 2.5em;
   padding-left: 15.625em; /* Espaço para a foto que virá por cima */
