@@ -313,13 +313,17 @@ body {
    ====================================================== */
 
 /* Para telas maiores que Full HD (ex: QHD/2K - a partir de 1921px) */
-@media (min-width: 120.0625em) {
+@media (min-width: 120em) {
   /* 1921px / 16px */
 
   .hero-container {
     /* Aumenta a largura máxima para preencher melhor a tela */
     max-width: 150rem; /* 2400px */
     min-height: 75rem; /* 1200px */
+  }
+
+  .hero-content{
+    padding-left: 12%;
   }
 
   .main-header {
