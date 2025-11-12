@@ -2,8 +2,8 @@ document.addEventListener("DOMContentLoaded", function() {
     
     // 1. Defina aqui a lista de todas as imagens que você quer usar
     const imagensDoCarrossel = [
-      "/Fotos/Contatos/contatos2.webp",     
-      "/Fotos/Contatos/contatos1.webp"      
+      "Fotos/Contatos/contatos2.webp",     
+      "Fotos/Contatos/contatos1.webp"      
       
       // Adicione quantas imagens quiser
     ];
