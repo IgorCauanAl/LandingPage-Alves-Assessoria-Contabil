@@ -140,10 +140,13 @@ body {
   transition: opacity 0.4s ease;
 }
 
-.service-card:hover .card-front {
+.service-card:hover .card-front,
+.service-card.is-flipped .card-front {
   opacity: 0;
 }
-.service-card:hover .card-back {
+
+.service-card:hover .card-back,
+.service-card.is-flipped .card-back {
   opacity: 1;
 }
 
