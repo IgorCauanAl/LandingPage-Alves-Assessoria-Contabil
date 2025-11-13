@@ -105,9 +105,14 @@ body {
   justify-content: center;
   width: 100%;
   height: 100%;
-  transition: opacity 0.4s ease;
   font-size: 0.9em;
-  text-align: center; /* Garante que o texto fique centrado */
+  text-align: center;
+  
+  /* --- MUDANÇAS AQUI --- */
+  opacity: 1;
+  visibility: visible; /* Garante que está visível por padrão */
+  pointer-events: auto; /* Garante que é clicável por padrão */
+  transition: opacity 0.4s ease, visibility 0.4s ease;
 }
 
 .card-front img {
@@ -136,18 +141,26 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  opacity: 0;
-  transition: opacity 0.4s ease;
-}
 
+  /* --- MUDANÇAS AQUI --- */
+  opacity: 0;
+  visibility: hidden; /* Escondido E não-interativo por padrão */
+  pointer-events: none; /* Não pode ser clicado */
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+}
 .service-card:hover .card-front,
 .service-card.is-flipped .card-front {
   opacity: 0;
+  visibility: hidden; /* Esconde e remove da interação */
+  pointer-events: none; /* Não pode ser clicado */
 }
 
+/* Bloco 4: SUBSTITUA AS REGRAS :hover/.is-flipped DE TRÁS */
 .service-card:hover .card-back,
 .service-card.is-flipped .card-back {
   opacity: 1;
+  visibility: visible; /* Torna visível */
+  pointer-events: auto; /* Agora PODE ser interagido */
 }
 
 .card-back ul {
@@ -456,6 +469,7 @@ body {
   .services-section {
     height: auto;
     padding: 5em 2em; /* 80px 32px */
+    justify-content: flex-start;
   }
 
   .services-header h2 {
@@ -481,21 +495,17 @@ body {
     display: none;
   }
 
-  /* --- Remove o posicionamento absoluto dos cards --- */
   .service-card {
-    position: static;
-    width: 100%; /* Ocupa 100% da sua coluna no grid */
-    height: 9.375em; /* 150px - Altura fixa para todos os cards */
-    transform: none !important; /* Reseta qualquer transformação */
+    position: relative;
+    transform: none !important;
+    top: auto;
+    left: auto;
+    right: auto;
+    bottom: auto;
   }
 
-  /* --- Ajuste específico para o último card centralizado --- */
-  /* Seleciona o último card e o posiciona no centro da grade */
-  .service-card:last-child {
-    grid-column: 1 / -1; /* Faz o card ocupar as duas colunas */
-    justify-self: center; /* Centraliza o card em si */
-    width: calc(50% - 0.75em); /* Metade da largura total menos metade do gap */
-  }
+
+
 }
 
 /* ===============================================
@@ -520,6 +530,8 @@ body {
     font-size: 1.125em; /* 18px */
   }
 
+
+
   /* --- CELULAR NA VERTICAL (PORTRAIT) --- */
   @media (orientation: portrait) {
     .services-section {
@@ -536,7 +548,7 @@ body {
       gap: 1.875em; /* 30px */
     }
     .service-card {
-      position: static;
+      position: relative;
       transform: none !important; /* Reseta transformações */
       width: 100%;
       max-width: 21.875em; /* 350px */
@@ -561,7 +573,8 @@ body {
       padding-right: 0;
     }
     .services-container {
-      position: static;
+      position: relative;
+      transform: none !important;
       width: 100%;
       height: auto;
       display: flex;

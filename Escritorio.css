@@ -295,9 +295,53 @@
   .office-images img {
     /* Cada imagem ocupa 90% para a próxima "espiar" */
     flex: 0 0 90%;
+    margin-left:-1.5em;
     scroll-snap-align: center; /* Centraliza a imagem ativa */
     height: 15.625em; /* Altura menor para celular */
   }
 
-  /* (Setas já estão escondidas pela media query de 64em) */
+ 
+}
+
+
+/* ======================================================
+   == RESPONSIVIDADE P/ CELULARES PEQUENOS (ATÉ 480PX) ==
+   ====================================================== */
+@media (max-width: 29em) {
+  /* 480px */
+
+  .office-section {
+    padding: 3em 0.5em; /* Menos padding */
+  }
+
+  .office-title {
+    text-align: center; /* Centraliza o título */
+  }
+
+  .office-text {
+    text-align: center; /* Centraliza o parágrafo */
+    margin-right:3.5em;
+  }
+
+  .office-content-block {
+    padding: 1.5em; /* Menos padding interno */
+    gap: 1.5em; /* Menos espaço */
+  }
+
+  .office-images {
+    padding: 0 0.5em; /* Menos padding no carrossel */
+    scroll-padding: 0 0.5em;
+  }
+
+  .office-images img {
+    /* Ocupa 92% para garantir que a próxima imagem "espie" */
+    flex: 0 0 92%;
+    height: 14em; /* Altura um pouco menor */
+    width: 1em;
+    margin-left:-1.5em;
+    scroll-snap-align: center;
+   
+  }
+
+  
 }
