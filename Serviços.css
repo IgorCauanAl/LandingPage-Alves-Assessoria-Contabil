@@ -479,22 +479,23 @@ body {
     font-size: 1.25em; /* 20px */
   }
 
-  /* --- Transforma o container em um grid --- */
+  /* --- Transforma o container em um grid de 3 COLUNAS --- */
   .services-container {
     position: static;
     width: 100%;
     height: auto;
-    display: grid; /* Layout em grade */
-    grid-template-columns: 1fr 1fr; /* Duas colunas de tamanho igual */
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr; /* <-- A MUDANÇA PRINCIPAL */
     gap: 1.5em; /* Espaçamento entre os cards */
-    max-width: 43.75em; /* 700px, para não ficar muito largo */
+    max-width: 60em; /* (960px) Aumentei para caber 3 colunas */
   }
 
-  /* Esconde a logo de fundo que não é mais necessária */
+  /* Esconde a logo de fundo */
   .central-logo {
     display: none;
   }
 
+  /* Reseta a posição de todos os cards */
   .service-card {
     position: relative;
     transform: none !important;
@@ -502,10 +503,45 @@ body {
     left: auto;
     right: auto;
     bottom: auto;
+    width: 100%; /* Faz o card ocupar a coluna do grid */
   }
 
+  /* --- POSICIONAMENTO MANUAL --- */
 
+  /* Coluna 1 (Esquerda) */
+  .card-escrituracao {
+    grid-column: 1;
+    grid-row: 1;
+  }
+  .card-contabilidade {
+    grid-column: 1;
+    grid-row: 2;
+  }
+  .card-imposto-renda {
+    grid-column: 1;
+    grid-row: 3;
+  }
 
+  /* Coluna 3 (Direita) */
+  .card-planejamento-empresa {
+    grid-column: 3;
+    grid-row: 1;
+  }
+  .card-planejamento-pf {
+    grid-column: 3;
+    grid-row: 2;
+  }
+  .card-rh {
+    grid-column: 3;
+    grid-row: 3;
+  }
+
+  /* Coluna 2 (Centro) */
+  .card-assessoria {
+    grid-column: 2;
+    grid-row: 2; /* Coloca ele na 2ª linha */
+    align-self: center; /* Centraliza ele verticalmente na célula */
+  }
 }
 
 /* ===============================================
